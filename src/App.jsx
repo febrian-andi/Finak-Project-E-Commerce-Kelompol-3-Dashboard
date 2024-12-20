@@ -9,6 +9,7 @@ import PromotionPage from './pages/PromotionPage';
 import BannerPage from './pages/BannerPage';
 import RatingPage from './pages/RatingPage';
 import StockPage from './pages/StockPage';
+import StockForm from './components/stock/StockForm';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,6 +38,9 @@ function App() {
             <Route path="/banner" element={<BannerPage />} />
             <Route path="/rating" element={<RatingPage />} />
             <Route path="/stock" element={<StockPage />} />
+            <Route path='/stock/add' element={<StockForm />} />
+            <Route path='/stock/edit' element={<StockForm />} />
+            <Route path='/stock/detail' element={<StockForm />} />
           </Routes>
         </main>
       </div>
