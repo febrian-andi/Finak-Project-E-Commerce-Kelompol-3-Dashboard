@@ -6,7 +6,7 @@ import RevenueChart from "../components/home/RevenueCart";
 
 const HomePage = () => {
   return (
-    <div className="w-full p-6 space-y-8">
+    <div className="w-full bg-primaryBackground p-6 space-y-8">
       <div className="flex flex-col lg:flex-row justify-between gap-8">
         <div className="w-full">
           <SummaryCard />
