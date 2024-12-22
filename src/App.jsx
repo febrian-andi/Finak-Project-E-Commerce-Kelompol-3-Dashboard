@@ -10,6 +10,7 @@ import BannerPage from './pages/BannerPage';
 import RatingPage from './pages/RatingPage';
 import StockPage from './pages/StockPage';
 import StockForm from './components/stock/StockForm';
+import ProductForm from './components/product/ProductForm';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -26,18 +27,21 @@ function App() {
 
   return (
     <Router>
-      <div className="flex min-h-screen font-lato">
+      <div className='flex min-h-screen font-lato'>
         <Navbar />
         <main className={`flex-1 ${!isMobile ? 'lg:ml-72' : ''}`}>
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/product" element={<PoductPage />} />
-            <Route path="/category" element={<CategoryPage />} />
-            <Route path="/orders" element={<OrdersPage />} />
-            <Route path="/promotion" element={<PromotionPage />} />
-            <Route path="/banner" element={<BannerPage />} />
-            <Route path="/rating" element={<RatingPage />} />
-            <Route path="/stock" element={<StockPage />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/product' element={<PoductPage />} />
+            <Route path='/product/add' element={<ProductForm mode="add" />} />
+            <Route path='/product/edit/:id' element={<ProductForm mode="edit" />} />
+            <Route path='/product/detail/:id' element={<ProductForm mode="detail" />} />
+            <Route path='/category' element={<CategoryPage />} />
+            <Route path='/orders' element={<OrdersPage />} />
+            <Route path='/promotion' element={<PromotionPage />} />
+            <Route path='/banner' element={<BannerPage />} />
+            <Route path='/rating' element={<RatingPage />} />
+            <Route path='/stock' element={<StockPage />} />
             <Route path='/stock/add' element={<StockForm />} />
             <Route path='/stock/edit' element={<StockForm />} />
             <Route path='/stock/detail' element={<StockForm />} />
