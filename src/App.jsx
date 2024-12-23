@@ -12,6 +12,7 @@ import StockPage from './pages/StockPage';
 import StockForm from './components/stock/StockForm';
 import ProductForm from './components/product/ProductForm';
 import PromotionForm from './components/promotion/PromotionForm';
+import BannerForm from './components/banner/BannerForm';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -39,11 +40,14 @@ function App() {
             <Route path='/product/detail/:id' element={<ProductForm mode='detail' />} />
             <Route path='/category' element={<CategoryPage />} />
             <Route path='/orders' element={<OrdersPage />} />
-            <Route path="/promotion" element={<PromotionPage />} />
-            <Route path="/promotion/add" element={<PromotionForm />} />
-            <Route path="/promotion/edit" element={<PromotionForm />} />
-            <Route path="/promotion/detail" element={<PromotionForm />} />
+            <Route path='/promotion' element={<PromotionPage />} />
+            <Route path='/promotion/add' element={<PromotionForm />} />
+            <Route path='/promotion/edit' element={<PromotionForm />} />
+            <Route path='/promotion/detail' element={<PromotionForm />} />
             <Route path='/banner' element={<BannerPage />} />
+            <Route path='/banner/add' element={<BannerForm mode='add' />} />
+            <Route path='/banner/edit/:id' element={<BannerForm mode='edit' />} />
+            <Route path='/banner/detail/:id' element={<BannerForm mode='detail' />} />
             <Route path='/rating' element={<RatingPage />} />
             <Route path='/stock' element={<StockPage />} />
             <Route path='/stock/add' element={<StockForm />} />
