@@ -33,9 +33,9 @@ function App() {
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/product' element={<PoductPage />} />
-            <Route path='/product/add' element={<ProductForm mode="add" />} />
-            <Route path='/product/edit/:id' element={<ProductForm mode="edit" />} />
-            <Route path='/product/detail/:id' element={<ProductForm mode="detail" />} />
+            <Route path='/product/add' element={<ProductForm mode='add' />} />
+            <Route path='/product/edit/:id' element={<ProductForm mode='edit' />} />
+            <Route path='/product/detail/:id' element={<ProductForm mode='detail' />} />
             <Route path='/category' element={<CategoryPage />} />
             <Route path='/orders' element={<OrdersPage />} />
             <Route path='/promotion' element={<PromotionPage />} />
