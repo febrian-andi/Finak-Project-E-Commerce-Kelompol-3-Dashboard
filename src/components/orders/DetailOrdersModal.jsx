@@ -3,7 +3,6 @@ import StatusOrder from "./StatusOrder";
 
 const DetailOrdersModal = ({ isOpen, onClose, order }) => {
   if (!isOpen) return null;
-
   const {
     customer_name = "John Doe",
     address = "Jl. Raya Bogor No.1, Bandung, Jawa Barat",
@@ -34,66 +33,123 @@ const DetailOrdersModal = ({ isOpen, onClose, order }) => {
 
   return (
     <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center z-50">
-      <div className="bg-white rounded-lg shadow-lg w-96">
-        {/* Header */}
+      <div className="bg-white rounded-lg shadow-lg w-full sm:w-max p-4">
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-xl font-semibold text-gray-800">Detail Order</h2>
           <div>
             <StatusOrder status_order={status_order} />
           </div>
         </div>
-
-        {/* Content */}
-        <div className="px-4 py-4">
-          {/* Customer Info */}
-          <div className="mb-4">
-            <h3 className="text-lg font-bold">Customer</h3>
-            <p className="text-gray-600">Name: {customer_name}</p>
-            <p className="text-gray-600">Address: {address}</p>
+        <div className="px-4 pr-6 pt-4">
+          <div className="mb-4 space-y-2">
+            <div className="grid grid-cols-3">
+              <p className="text-xs">Customer Name</p>
+              <p className="text-xs font-medium col-span-2">{customer_name}</p>
+            </div>
+            <div className="grid grid-cols-3">
+              <p className="text-xs">Address</p>
+              <p className="text-xs font-medium col-span-2">{address}</p>
+            </div>
+            <div className="grid grid-cols-3">
+              <p className="text-xs">Payment Method</p>
+              <p className="text-xs font-medium col-span-2">{payment_method}</p>
+            </div>
           </div>
-
-          {/* Order Info */}
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">Order Info</h3>
-            <p className="text-gray-600">Payment Method: {payment_method}</p>
-            <p className="text-gray-600">Status: {status_order}</p>
-          </div>
-
-          {/* Products List */}
-          <div className="mb-4">
-            <h3 className="text-lg font-semibold text-gray-700">Products</h3>
-            <ul className="divide-y divide-gray-200">
-              {products?.map((product, index) => (
-                <li key={index} className="py-2 flex justify-between">
-                  <span>
-                    {product.name} (x{product.amount})
-                  </span>
-                  <span>${product.total_price}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Subtotal */}
-          <div className="flex justify-between items-center border-t pt-2">
-            <span className="text-lg font-semibold text-gray-700">
-              Subtotal
-            </span>
-            <span className="text-lg font-semibold text-gray-900">
-              ${sub_total}
-            </span>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left text-xs font-bold pr-6 py-4">
+                    Product Name
+                  </th>
+                  <th className="text-left text-xs font-bold pr-6 py-4">
+                    Amount
+                  </th>
+                  <th className="text-left text-xs font-bold pr-6 py-4">
+                    Unit Price
+                  </th>
+                  <th className="text-left text-xs font-bold pr-6 py-4">
+                    Total Price
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {products?.map((product, index) => (
+                  <tr key={index} className="table-row border-b">
+                    <td className="text-left text-xs pr-6 py-4">
+                      {product.name}
+                    </td>
+                    <td className="text-left text-xs pr-6 py-4">
+                      {product.amount}
+                    </td>
+                    <td className="text-left text-xs pr-6 py-4">
+                      ${product.price}
+                    </td>
+                    <td className="text-left text-xs pr-6 py-4">
+                      ${product.total_price}
+                    </td>
+                  </tr>
+                ))}
+                <tr>
+                  <td className="text-left text-xs pr-6 py-4"></td>
+                  <td className="text-left text-xs pr-6 py-4"></td>
+                  <td className="text-left text-xs pr-6 py-4"></td>
+                  <td className="text-left text-xs pr-6 py-4 font-medium">
+                    Sub Total
+                  </td>
+                  <td className="text-left text-xs pr-6 py-4 font-semibold">
+                    ${sub_total}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
+        <form>
+          {status_order === "process" && (
+            <div className="space-y-1">
+              <label className="text-sm" htmlFor="tracking_number">
+                Tracking Number
+              </label>
+              <input 
+                className="w-full border bg-[#F4F5F9] rounded py-1 px-4 focus:outline-none focus:ring-2 focus:ring-[#DB4444] focus:border-transparent"
+                type="text"
+                id="tracking_number"
+                name="tracking_number"
+                placeholder="Enter Tracking Number"
+                required
+              />
+            </div>
+          )}
 
-        {/* Footer */}
-        <div className="flex justify-end border-t px-4 py-2">
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-            onClick={onClose}
-          >
-            Close
-          </button>
-        </div>
+          {(status_order === "created" || status_order === "process") && (
+            <div className="flex justify-end space-x-4 mt-10">
+              <button
+                className="border border-[#DB4444] text-[#DB4444] text-xs w-1/4 py-2 rounded hover:bg-[#D7D7D7FF] transition duration-200"
+                onClick={onClose}
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="bg-[#DB4444] text-white text-xs w-1/4 py-2 rounded hover:bg-[#B33939FF] transition duration-200"
+              >
+                Accept
+              </button>
+            </div>
+          )}
+
+          {(status_order === "completed" || status_order === "cancelled") && (
+            <div className="flex justify-end space-x-4 mt-10">
+              <button
+                className="bg-gray-500 text-white text-xs w-1/4 py-2 rounded hover:bg-gray-600 transition duration-200"
+                onClick={onClose}
+              >
+                Close
+              </button>
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );

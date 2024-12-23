@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import HeaderOrders from "../components/orders/HeaderOrders";
 import TableOrders from "../components/orders/TableOrders";
-// import PaginationOrders from "../components/orders/PaginationOrders";
+import PaginationOrders from "../components/orders/PaginationOrders";
 
 const OrdersPage = () => {
   const [promotion] = useState(generateSampleData());
@@ -62,7 +62,7 @@ const OrdersPage = () => {
       <div className="bg-white rounded-lg p-6 shadow">
         <HeaderOrders title="Promotion" breadcrumbs={["Home", "Promotion"]} />
         <TableOrders currentItems={currentItems} />
-        {/* <PaginationPromotion
+        <PaginationOrders
           startIndex={startIndex}
           endIndex={endIndex}
           totalItems={totalItems}
@@ -71,7 +71,7 @@ const OrdersPage = () => {
           totalPages={totalPages}
           setRowsPerPage={setRowsPerPage}
           setCurrentPage={setCurrentPage}
-        /> */}
+        />
       </div>
     </div>
   );
