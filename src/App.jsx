@@ -11,6 +11,7 @@ import RatingPage from './pages/RatingPage';
 import StockPage from './pages/StockPage';
 import StockForm from './components/stock/StockForm';
 import ProductForm from './components/product/ProductForm';
+import PromotionForm from './components/promotion/PromotionForm';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,7 +39,10 @@ function App() {
             <Route path='/product/detail/:id' element={<ProductForm mode="detail" />} />
             <Route path='/category' element={<CategoryPage />} />
             <Route path='/orders' element={<OrdersPage />} />
-            <Route path='/promotion' element={<PromotionPage />} />
+            <Route path="/promotion" element={<PromotionPage />} />
+            <Route path="/promotion/add" element={<PromotionForm />} />
+            <Route path="/promotion/edit" element={<PromotionForm />} />
+            <Route path="/promotion/detail" element={<PromotionForm />} />
             <Route path='/banner' element={<BannerPage />} />
             <Route path='/rating' element={<RatingPage />} />
             <Route path='/stock' element={<StockPage />} />
