@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import pencilIcon from '../assets/category/Pencil.svg';
+import pencilIcon from '../assets/category/pencil.svg';
 import trashIcon from '../assets/category/trash.svg';
 import CategoryFormModal from '../components/category/CategoryFormModal';
 
