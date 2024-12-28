@@ -5,6 +5,7 @@ import SalesIcon from "../../assets/home/SalesIcon";
 import BoxIcon from "../../assets/home/BoxIcon";
 
 const SummaryCard = () => {
+
   const summaryData = [
     {
       title: "Users",
@@ -14,7 +15,7 @@ const SummaryCard = () => {
     {
       title: "Orders",
       icon: <CursorIcon color="white" />,
-      count: "40",
+      count: 40,
     },
     {
       title: "Sales",
@@ -24,7 +25,7 @@ const SummaryCard = () => {
     {
       title: "Items",
       icon: <BoxIcon color="white" height="18" width="18" />,
-      count: "68",
+      count: 68,
     },
   ];
 
