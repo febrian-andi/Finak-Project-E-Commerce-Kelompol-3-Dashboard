@@ -4,8 +4,8 @@ import AlertDialog from '../sweetalert/AlertDialog';
 import PencilIcon from '../../assets/stock/PencilIcon';
 import TrashIcon from '../../assets/stock/TrashIcon';
 import EyeIcon from '../../assets/stock/EyeIcon';
+import ShortFilterIcon from '../../assets/stock/ShortFilterIcon';
 import PropsTypes from 'prop-types';
-
 
 const TableStock = ({ 
   currentItems, 
@@ -18,6 +18,52 @@ const TableStock = ({
   const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [sortField, setSortField] = useState("");
+  const [order, setOrder] = useState("asc");
+
+  // Sorting function
+  const handleSorting = (field) => {
+    const sortOrder = field === sortField && order === "asc" ? "desc" : "asc";
+    setSortField(field);
+    setOrder(sortOrder);
+  };
+
+  // Get sorted data
+  const sortedData = [...currentItems].sort((a, b) => {
+    if (!sortField) return 0;
+
+    // Handle date sorting
+    if (sortField === 'date') {
+      const dateA = new Date(a[sortField]).getTime();
+      const dateB = new Date(b[sortField]).getTime();
+      return order === 'asc' ? dateA - dateB : dateB - dateA;
+    }
+
+    // Handle quantity sorting
+    if (sortField === 'quantity') {
+      return order === 'asc' ? a[sortField] - b[sortField] : b[sortField] - a[sortField];
+    }
+
+    // Handle string sorting (name and variant)
+    const aValue = a[sortField].toString().toLowerCase();
+    const bValue = b[sortField].toString().toLowerCase();
+    
+    return order === 'asc' 
+      ? aValue.localeCompare(bValue)
+      : bValue.localeCompare(aValue);
+  });
+
+  const renderSortIcon = (fieldName) => {
+    return (
+      <span className={`inline-flex ${sortField === fieldName ? 'text-red-500' : 'text-gray-400'}`}>
+        <ShortFilterIcon 
+          className={`w-4 h-4 transition-transform ${
+            sortField === fieldName && order === 'asc' ? 'transform rotate-180' : ''
+          }`}
+        />
+      </span>
+    );
+  };
 
   const highlightText = (text, highlight) => {
     if (!highlight.trim()) {
@@ -105,15 +151,47 @@ const TableStock = ({
         <table className="w-full">
           <thead>
             <tr>
-              <th className="text-left px-6 py-4 bg-gray-50">Product Name</th>
-              <th className="text-left px-6 py-4 bg-gray-50">Varian Product</th>
-              <th className="text-left px-6 py-4 bg-gray-50">Quantity</th>
-              <th className="text-left px-6 py-4 bg-gray-50">Last Updated</th>
+              <th 
+                className="text-left px-6 py-4 bg-gray-50 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSorting('name')}
+              >
+                <div className="flex items-center gap-2">
+                  Product Name
+                  {renderSortIcon('name')}
+                </div>
+              </th>
+              <th 
+                className="text-left px-6 py-4 bg-gray-50 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSorting('variant')}
+              >
+                <div className="flex items-center gap-2">
+                  Varian Product
+                  {renderSortIcon('variant')}
+                </div>
+              </th>
+              <th 
+                className="text-left px-6 py-4 bg-gray-50 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSorting('quantity')}
+              >
+                <div className="flex items-center gap-2">
+                  Quantity
+                  {renderSortIcon('quantity')}
+                </div>
+              </th>
+              <th 
+                className="text-left px-6 py-4 bg-gray-50 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleSorting('date')}
+              >
+                <div className="flex items-center gap-2">
+                  Last Updated
+                  {renderSortIcon('date')}
+                </div>
+              </th>
               <th className="text-left px-6 py-4 bg-gray-50">Action</th>
             </tr>
           </thead>
           <tbody>
-            {currentItems.map((item) => (
+            {sortedData.map((item) => (
               <tr 
                 key={item.id} 
                 className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
