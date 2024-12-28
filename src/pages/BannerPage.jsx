@@ -144,7 +144,7 @@ const BannerPage = () => {
           <div>
             <h1 className='text-2xl font-semibold'>Banner Management</h1>
             <div className='text-sm text-gray-500'>
-              <span className='text-red-500'>Home</span> / Banner Management
+              <span className='text-red-500'>Home</span> / <span className='text-red-500'>Banner Management</span>
             </div>
           </div>
           <Link onClick={handleAddNew} to={'/banner/add'} className='bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg'>
@@ -191,6 +191,7 @@ const BannerPage = () => {
                 <th className='text-left py-4 px-4'>Action</th>
               </tr>
             </thead>
+            
             <tbody>
               {currentItems.map((banner) => (
                 <tr key={banner.id} className='border-b hover:bg-gray-50'>
@@ -244,9 +245,9 @@ const BannerPage = () => {
                   setRowsPerPage(Number(e.target.value));
                   setCurrentPage(1);
                 }}>
+                <option value={10}>10</option>
                 <option value={20}>20</option>
                 <option value={30}>30</option>
-                <option value={50}>50</option>
               </select>
             </div>
             <div className='flex items-center space-x-1'>

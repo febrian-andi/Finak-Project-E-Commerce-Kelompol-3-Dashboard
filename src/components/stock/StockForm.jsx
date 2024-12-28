@@ -1,10 +1,11 @@
-// components/stock/StockForm.jsx
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SuccessAlert from '../sweetalert/SuccessAlert'; 
 
 const StockForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
   const [formData, setFormData] = useState({
     product: '',
     currentStock: '10',
@@ -28,36 +29,54 @@ const StockForm = () => {
         return { 
           title: 'Edit Stock',
           buttonText: 'Save',
-          isReadOnly: false
+          isReadOnly: false,
+          successMessage: 'This stock was successfully updated'
         };
       case 'detail':
         return { 
           title: 'Stock Detail',
           buttonText: 'Close',
-          isReadOnly: true
+          isReadOnly: true,
+          successMessage: ''
         };
       default:
         return { 
           title: 'Add Stock',
-          buttonText: 'Add Banner',
-          isReadOnly: false
+          buttonText: 'Add Stock',
+          isReadOnly: false,
+          successMessage: 'This stock was successfully added'
         };
     }
   };
 
-  const { title, buttonText, isReadOnly } = getFormConfig();
+  const { title, buttonText, isReadOnly, successMessage } = getFormConfig();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    switch (formType) {
-      case 'add':
-        console.log('Adding new stock:', formData);
-        break;
-      case 'edit':
-        console.log('Updating stock:', formData);
-        break;
-      default:
-        break;
+    try {
+      switch (formType) {
+        case 'add':
+          // Add logic here
+          console.log('Adding new stock:', formData);
+          break;
+        case 'edit':
+          // Edit logic here
+          console.log('Updating stock:', formData);
+          break;
+        default:
+          break;
+      }
+
+      // Show success alert
+      setShowSuccessAlert(true);
+
+      // Navigate back after alert duration
+      setTimeout(() => {
+        navigate('/stock');
+      }, 2000);
+
+    } catch (error) {
+      console.error('Error:', error);
     }
   };
 
@@ -172,6 +191,14 @@ const StockForm = () => {
           </div>
         </form>
       </div>
+
+      {/* Success Alert Modal */}
+      <SuccessAlert 
+        isOpen={showSuccessAlert}
+        onClose={() => setShowSuccessAlert(false)}
+        message={successMessage}
+        duration={2000}
+      />
     </div>
   );
 };
