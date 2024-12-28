@@ -19,7 +19,7 @@ const RatingHeader = ({ searchQuery, setSearchQuery, showDatePicker, setShowDate
   return (
     <div className='flex items-center gap-4 mb-6'>
       <div className='flex items-center gap-2 '>
-        <div className='relative bg-white rounded-lg shadow border rounded-md' ref={datePickerRef}>
+        <div className='relative bg-white rounded-lg shadow border' ref={datePickerRef}>
           <button className='p-2.5' onClick={() => setShowDatePicker(!showDatePicker)}>
             <CalenderIcon />
           </button>
