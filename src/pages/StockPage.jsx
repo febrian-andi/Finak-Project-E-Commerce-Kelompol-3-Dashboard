@@ -59,13 +59,10 @@ const StockPage = () => {
       <div className='bg-white rounded-lg p-6 shadow'>
         {/* Header */}
         <HeaderStock title='Stock' breadcrumbs={['Home', 'Stock']} onAddStock={handleAddStock} />
-
         {/* Controls */}
         <ControlsStock showDatePicker={showDatePicker} setShowDatePicker={setShowDatePicker} selectedDate={selectedDate} setSelectedDate={setSelectedDate} searchQuery={searchQuery} setSearchQuery={setSearchQuery} totalItems={totalItems} />
-
         {/* Table */}
         <TableStock currentItems={currentItems} />
-
         {/* Pagination */}
         <PaginationStock startIndex={startIndex} endIndex={endIndex} totalItems={totalItems} rowsPerPage={rowsPerPage} currentPage={currentPage} totalPages={totalPages} setRowsPerPage={setRowsPerPage} setCurrentPage={setCurrentPage} />
       </div>
