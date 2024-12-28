@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import RatingHeader from '../components/rating/RatingHeader';
 import RatingTable from '../components/rating/RatingTable';
+import RatingBreadCrumb from '../components/rating/RatingBreadCrumb';
 
 const RatingPage = () => {
   const [expandedReviews, setExpandedReviews] = useState({});
@@ -125,50 +126,38 @@ const RatingPage = () => {
   };
 
   return (
-    <div className='p-8'>
-      <h1 className='text-2xl font-bold mb-4'>Rating</h1>
-      {/* Breadcrumb */}
-      <nav className='mb-4'>
-        <ol className='flex items-center space-x-2'>
-          <li>
-            <Link to='/' className='text-red-500 hover:text-red-700'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <span className='text-gray-500'>/</span>
-          </li>
-          <li>
-            <span className='text-gray-900'>Rating</span>
-          </li>
-        </ol>
-      </nav>
+    <div className='min-h-screen bg-gray-100 p-6'>
+      <div className='bg-white rounded-lg p-6 shadow'>
+        <h1 className='text-2xl font-bold mb-4'>Rating</h1>
+        {/* Breadcrumb */}
+        <RatingBreadCrumb />
 
-      <RatingHeader
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        showDatePicker={showDatePicker}
-        setShowDatePicker={setShowDatePicker}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-        datePickerRef={datePickerRef}
-      />
-      <RatingTable
-        headers={headers}
-        sortedRatings={sortedRatings.map((rating) => ({
-          ...rating,
-          reviewDate: formatDate(rating.reviewDate), // Format date for display
-        }))}
-        expandedReviews={expandedReviews}
-        toggleReview={toggleReview}
-        headerMapping={headerMapping}
-        handleSort={handleSort}
-        sortConfig={sortConfig}
-        showDatePicker={showDatePicker}
-        setShowDatePicker={setShowDatePicker}
-        selectedDate={selectedDate}
-        setSelectedDate={setSelectedDate}
-      />
+        <RatingHeader
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          showDatePicker={showDatePicker}
+          setShowDatePicker={setShowDatePicker}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+          datePickerRef={datePickerRef}
+        />
+        <RatingTable
+          headers={headers}
+          sortedRatings={sortedRatings.map((rating) => ({
+            ...rating,
+            reviewDate: formatDate(rating.reviewDate), // Format date for display
+          }))}
+          expandedReviews={expandedReviews}
+          toggleReview={toggleReview}
+          headerMapping={headerMapping}
+          handleSort={handleSort}
+          sortConfig={sortConfig}
+          showDatePicker={showDatePicker}
+          setShowDatePicker={setShowDatePicker}
+          selectedDate={selectedDate}
+          setSelectedDate={setSelectedDate}
+        />
+      </div>
     </div>
   );
 };
