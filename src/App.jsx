@@ -19,7 +19,6 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
-  // const location = window.location.pathname;
   const location = useLocation().pathname;
   const authPage = [
     "/login",
