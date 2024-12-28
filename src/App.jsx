@@ -42,7 +42,6 @@ function App() {
         <main className={`flex-1 ${!isMobile ? 'lg:ml-72' : ''}`}>
           <Routes>
             <Route path='/' element={<HomePage />} />
-
             <Route path='/product' element={<PoductPage />} />
             <Route path='/product/add' element={<ProductForm mode='add' />} />
             <Route path='/product/edit/:id' element={<ProductForm mode='edit' />} />
@@ -59,9 +58,9 @@ function App() {
             <Route path='/banner/detail/:id' element={<BannerForm mode='detail' />} />
             <Route path='/rating' element={<RatingPage />} />
             <Route path='/stock' element={<StockPage />} />
-            <Route path='/stock/add' element={<StockForm />} />
-            <Route path='/stock/edit' element={<StockForm />} />
-            <Route path='/stock/detail' element={<StockForm />} />
+            <Route path='/stock/add' element={<StockPage />} />
+            <Route path='/stock/edit/:id' element={<StockPage />} />
+            <Route path='/stock/detail/:id' element={<StockPage/>} />
           </Routes>
         </main>
       </div>
