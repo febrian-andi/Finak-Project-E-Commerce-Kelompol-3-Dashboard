@@ -13,6 +13,7 @@ import StockForm from './components/stock/StockForm';
 import ProductForm from './components/product/ProductForm';
 import PromotionForm from './components/promotion/PromotionForm';
 import BannerForm from './components/banner/BannerForm';
+import AuthPage from './pages/AuthPage';
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -29,11 +30,19 @@ function App() {
 
   return (
     <Router>
+      <Routes>
+        <Route path='/login' element={<AuthPage />} />
+        <Route path='/register' element={<AuthPage />} />
+        <Route path='/forgot-password' element={<AuthPage />} />
+        <Route path='/verify-otp' element={<AuthPage />} />
+        <Route path='/reset-password' element={<AuthPage />} />
+      </Routes>
       <div className='flex min-h-screen font-lato'>
         <Navbar />
         <main className={`flex-1 ${!isMobile ? 'lg:ml-72' : ''}`}>
           <Routes>
             <Route path='/' element={<HomePage />} />
+
             <Route path='/product' element={<PoductPage />} />
             <Route path='/product/add' element={<ProductForm mode='add' />} />
             <Route path='/product/edit/:id' element={<ProductForm mode='edit' />} />
