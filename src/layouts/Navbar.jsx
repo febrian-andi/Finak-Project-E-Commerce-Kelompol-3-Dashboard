@@ -8,12 +8,21 @@ import promotion_icon from '../assets/navbar/promotion_icon.svg';
 import banner_icon from '../assets/navbar/banner_icon.svg';
 import rating_icon from '../assets/navbar/rating_icon.svg';
 import stock_icon from '../assets/navbar/stock_icon.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../redux/slices/authSlice';
    
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
+
+  // Handle logout 
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   // Handle responsive behavior
   useEffect(() => {
@@ -66,8 +75,9 @@ const Navbar = () => {
               <img src="/api/placeholder/48/48" alt="Profile" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 min-w-0">
-              <h3 className="text-lg font-semibold truncate">Anita Cruz</h3>
-              <p className="text-gray-400 text-sm truncate">anita@commerce.com</p>
+              <h3 className="text-lg font-semibold truncate">{user?.name}</h3>
+              <p className="text-gray-400 text-sm truncate">{user?.email}</p>
+              <button onClick={handleLogout} className="text-sm text-red-500 underline underline-offset-2">Logout</button>
             </div>
           </div>
         </div>

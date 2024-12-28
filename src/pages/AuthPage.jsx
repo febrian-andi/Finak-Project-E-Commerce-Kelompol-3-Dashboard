@@ -5,8 +5,12 @@ import FormRegister from '../components/auth/FormRegister';
 import FormForgotPassword from '../components/auth/FormForgotPassword';
 import FormOTP from '../components/auth/FormOTP ';
 import womanImage from '../assets/auth/woman.png';
+import { login, register } from '../redux/slices/authSlice';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 const AuthPage = () => {
+  const dispatch = useDispatch();
   const location = useLocation();
   const [formData, setFormData] = useState({
     fullName: '',
@@ -26,12 +30,15 @@ const AuthPage = () => {
     e.preventDefault();
     try {
       if (location.pathname === '/login') {
-        console.log('Login:', { email: formData.email, password: formData.password });
+        dispatch(login(formData));
+        // console.log('Login:', { email: formData.email, password: formData.password });
       } else if (location.pathname === '/register') {
-        console.log('Register:', formData);
+        dispatch(register(formData));
+        // console.log('Register:', formData);
       }
     } catch (error) {
       console.error('Auth error:', error);
+      alert(error || "An error occurred. Please try again.");
     }
   };
 
