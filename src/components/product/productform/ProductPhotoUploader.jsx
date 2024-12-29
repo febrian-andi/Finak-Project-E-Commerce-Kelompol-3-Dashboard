@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const ProductPhotoUploader = ({ photoPreviews, handlePhotoChange, handlePhotoDrop, handlePhotoDelete, handleSetDefaultPhoto }) => (
   <div className='rounded-lg'>
@@ -81,5 +82,14 @@ const ProductPhotoUploader = ({ photoPreviews, handlePhotoChange, handlePhotoDro
     )}
   </div>
 );
+
+ProductPhotoUploader.propTypes = {
+  photoPreviews: PropTypes.array.isRequired,
+  handlePhotoChange: PropTypes.func.isRequired,
+  handlePhotoDrop: PropTypes.func.isRequired,
+  handlePhotoDelete: PropTypes.func.isRequired,
+  handleSetDefaultPhoto: PropTypes.func.isRequired,
+};
+
 
 export default ProductPhotoUploader;

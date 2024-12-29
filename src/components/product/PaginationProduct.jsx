@@ -1,4 +1,5 @@
 import React from "react";
+import  PropTypes from 'prop-types';
 
 const PaginationProduct = ({ currentPage, totalPages, rowsPerPage, totalItems, setRowsPerPage, setCurrentPage }) => {
   const startIndex = (currentPage - 1) * rowsPerPage;
@@ -49,6 +50,15 @@ const PaginationProduct = ({ currentPage, totalPages, rowsPerPage, totalItems, s
       </div>
     </div>
   );
+};
+
+PaginationProduct.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  setRowsPerPage: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default PaginationProduct;
