@@ -1,87 +1,135 @@
-import React, { useState } from 'react';
-import trashIcon from '../assets/banner/trash.svg';
-import pencilIcon from '../assets/banner/pencil.svg';
-import eyeIcon from '../assets/banner/eye.svg';
-import filterIcon from '../assets/banner/filter.svg';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import bannerImage from '../assets/banner/bannerImage.png';
-import { Link } from 'react-router-dom';
+import HeaderBanner from '../components/banner/HeaderBanner';
+import PaginationBanner from '../components/banner/PaginationBanner';
+import TableBanner from '../components/banner/TableBanner';
+import BannerForm from '../components/banner/BannerForm';
+import AlertDialog from '../components/sweetalert/AlertDialog';
 
 const BannerPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalMode, setModalMode] = useState('add');
-  const [selectedBanner, setSelectedBanner] = useState(null);
+  // State Management
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [sortConfig, setSortConfig] = useState({
     key: null,
     direction: 'asc',
   });
+  const [selectedBanner, setSelectedBanner] = useState(null);
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
+  const [bannerToDelete, setBannerToDelete] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-  // Sample data
+  // Get current route and params
+  const location = useLocation();
+  const { id } = useParams();
+
+  // Sample Banner Data
   const [banners, setBanners] = useState([
     {
       id: 1,
       picture: bannerImage,
       name: 'Promo Akhir Tahun',
       targetUrl: 'www.e-commerce.com',
-      releaseDate: '09/11/2024',
-      endDate: '12/11/2024',
+      releaseDate: '2024-11-09',
+      endDate: '2024-11-12',
       published: false,
+      bannerType: 'main'
     },
     {
       id: 2,
       picture: bannerImage,
       name: 'Produk Baru',
       targetUrl: 'www.e-commerce.com',
-      releaseDate: '08/11/2024',
-      endDate: '11/11/2024',
+      releaseDate: '2024-11-08',
+      endDate: '2024-11-11',
       published: true,
+      bannerType: 'side'
     },
     {
       id: 3,
       picture: bannerImage,
       name: 'Diskon 30%',
       targetUrl: 'www.e-commerce.com',
-      releaseDate: '07/11/2024',
-      endDate: '10/11/2024',
+      releaseDate: '2024-11-07',
+      endDate: '2024-11-10',
       published: false,
+      bannerType: 'popup'
     },
     {
       id: 4,
       picture: bannerImage,
       name: 'Giveaway',
       targetUrl: 'www.e-commerce.com',
-      releaseDate: '03/11/2024',
-      endDate: '09/11/2024',
+      releaseDate: '2024-11-03',
+      endDate: '2024-11-09',
       published: false,
+      bannerType: 'main'
     },
   ]);
 
-  // Modal handlers
-  const handleAddNew = () => {
-    setModalMode('add');
-    setSelectedBanner(null);
-    setIsModalOpen(true);
+  // Effect to set selected banner when ID changes
+  useEffect(() => {
+    if (id) {
+      const banner = banners.find((b) => b.id === parseInt(id));
+      if (banner) {
+        setSelectedBanner(banner);
+      }
+    } else {
+      setSelectedBanner(null);
+    }
+  }, [id, banners]);
+
+  // CRUD Operations
+  const handleAddNew = (newBanner) => {
+    const bannerWithId = {
+      ...newBanner,
+      id: banners.length + 1,
+      published: false
+    };
+    setBanners([...banners, bannerWithId]);
+    setCurrentPage(1);
+    return true;
   };
 
-  const handleEdit = (banner) => {
-    setModalMode('edit');
-    setSelectedBanner(banner);
-    setIsModalOpen(true);
+  const handleUpdateBanner = (updatedBanner) => {
+    setBanners(banners.map(banner => 
+      banner.id === updatedBanner.id ? updatedBanner : banner
+    ));
+    return true;
   };
 
-  const handleDelete = (id) => {
-    if (window.confirm('Are you sure you want to delete this banner?')) {
-      setBanners(banners.filter((banner) => banner.id !== id));
+  const handleDeleteInitiate = (id) => {
+    const banner = banners.find(b => b.id === id);
+    setBannerToDelete(banner);
+    setIsAlertOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    if (bannerToDelete && !isDeleting) {
+      setIsDeleting(true);
+      try {
+        setBanners((prevBanners) => {
+          const filteredBanners = prevBanners.filter((banner) => banner.id !== bannerToDelete.id);
+          const remainingItems = filteredBanners.length;
+          const maxPages = Math.ceil(remainingItems / rowsPerPage);
+          if (currentPage > maxPages) {
+            setCurrentPage(Math.max(1, maxPages));
+          }
+          return filteredBanners;
+        });
+        setIsAlertOpen(false);
+        setBannerToDelete(null);
+        return true;
+      } catch (error) {
+        console.error('Error deleting banner:', error);
+        return false;
+      } finally {
+        setIsDeleting(false);
+      }
     }
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedBanner(null);
-  };
-
-  // Sorting function
   const handleSort = (key) => {
     let direction = 'asc';
     if (sortConfig.key === key && sortConfig.direction === 'asc') {
@@ -90,7 +138,7 @@ const BannerPage = () => {
     setSortConfig({ key, direction });
   };
 
-  // Apply sorting to data
+  // Sorting Logic
   const sortedBanners = [...banners].sort((a, b) => {
     if (!sortConfig.key) return 0;
 
@@ -116,19 +164,12 @@ const BannerPage = () => {
     return 0;
   });
 
-  // Pagination calculations
+  // Pagination Logic
   const totalItems = sortedBanners.length;
   const totalPages = Math.ceil(totalItems / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
   const currentItems = sortedBanners.slice(startIndex, endIndex);
-
-  // Pagination handlers
-  const nextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
 
   const prevPage = () => {
     if (currentPage > 1) {
@@ -136,135 +177,78 @@ const BannerPage = () => {
     }
   };
 
+  const nextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  console.log(banners);
+  
+
+  // Determine if we should show the form based on the current route
+  const shouldShowForm = location.pathname !== '/banner';
+
+  // If we're on a form route (add/edit/detail), render the BannerForm
+  if (shouldShowForm) {
+    return (
+      <BannerForm 
+        banners={banners}
+        selectedBanner={selectedBanner}
+        onAdd={handleAddNew}
+        onUpdate={handleUpdateBanner}
+      />
+    );
+  }
+
+  console.log(banners);
+  
+
+  // Otherwise, render the banner list view
   return (
     <div className='min-h-screen bg-gray-100 p-6'>
       <div className='bg-white rounded-lg p-6 shadow'>
-        {/* Header */}
-        <div className='flex justify-between items-center mb-6'>
-          <div>
-            <h1 className='text-2xl font-semibold'>Banner Management</h1>
-            <div className='text-sm text-gray-500'>
-              <span className='text-red-500'>Home</span> / <span className='text-red-500'>Banner Management</span>
-            </div>
-          </div>
-          <Link onClick={handleAddNew} to={'/banner/add'} className='bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg'>
-            Add New Banner
-          </Link>
-        </div>
+        {/* Header Component */}
+        <HeaderBanner />
+        
+        {/* Table Component */}
+        <TableBanner 
+          currentItems={currentItems}
+          sortConfig={sortConfig}
+          handleSort={handleSort}
+          handleDelete={handleDeleteInitiate}
+          setBanners={setBanners}
+          banners={banners}
+        />
 
-        {/* Table */}
-        <div className='overflow-x-auto'>
-          <table className='w-full'>
-            <thead>
-              <tr className='border-b'>
-                <th className='text-left py-4 px-4'>Banner Picture</th>
-                <th className='text-left py-4 px-4'>
-                  <div className='flex items-center cursor-pointer' onClick={() => handleSort('name')}>
-                    Banner Name
-                    <img src={filterIcon} alt='filter' className={`inline-block ml-1 transition-transform duration-200 ${sortConfig.key === 'name' && sortConfig.direction === 'desc' ? 'transform rotate-180' : ''}`} />
-                  </div>
-                </th>
-                <th className='text-left py-4 px-4'>
-                  <div className='flex items-center cursor-pointer' onClick={() => handleSort('targetUrl')}>
-                    Target URL
-                    <img src={filterIcon} alt='filter' className={`inline-block ml-1 transition-transform duration-200 ${sortConfig.key === 'targetUrl' && sortConfig.direction === 'desc' ? 'transform rotate-180' : ''}`} />
-                  </div>
-                </th>
-                <th className='text-left py-4 px-4'>
-                  <div className='flex items-center cursor-pointer' onClick={() => handleSort('releaseDate')}>
-                    Release Date
-                    <img src={filterIcon} alt='filter' className={`inline-block ml-1 transition-transform duration-200 ${sortConfig.key === 'releaseDate' && sortConfig.direction === 'desc' ? 'transform rotate-180' : ''}`} />
-                  </div>
-                </th>
-                <th className='text-left py-4 px-4'>
-                  <div className='flex items-center cursor-pointer' onClick={() => handleSort('endDate')}>
-                    End Date
-                    <img src={filterIcon} alt='filter' className={`inline-block ml-1 transition-transform duration-200 ${sortConfig.key === 'endDate' && sortConfig.direction === 'desc' ? 'transform rotate-180' : ''}`} />
-                  </div>
-                </th>
-                <th className='text-left py-4 px-4'>
-                  <div className='flex items-center cursor-pointer' onClick={() => handleSort('published')}>
-                    Published
-                    <img src={filterIcon} alt='filter' className={`inline-block ml-1 transition-transform duration-200 ${sortConfig.key === 'published' && sortConfig.direction === 'desc' ? 'transform rotate-180' : ''}`} />
-                  </div>
-                </th>
-                <th className='text-left py-4 px-4'>Action</th>
-              </tr>
-            </thead>
-            
-            <tbody>
-              {currentItems.map((banner) => (
-                <tr key={banner.id} className='border-b hover:bg-gray-50'>
-                  <td className='py-4 px-4'>
-                    <img src={banner.picture} alt={banner.name} className='w-16 h-16 object-cover' />
-                  </td>
-                  <td className='py-4 px-4 text-gray-600'>{banner.name}</td>
-                  <td className='py-4 px-4 text-gray-600'>{banner.targetUrl}</td>
-                  <td className='py-4 px-4 text-gray-600'>{banner.releaseDate}</td>
-                  <td className='py-4 px-4 text-gray-600'>{banner.endDate}</td>
-                  <td className='py-4 px-4'>
-                    <button
-                      className='relative inline-block w-12 h-6'
-                      onClick={() => {
-                        setBanners(banners.map((item) => (item.id === banner.id ? { ...item, published: !item.published } : item)));
-                      }}>
-                      <div className={`w-full h-full rounded-full transition-colors duration-200 ease-in-out ${banner.published ? 'bg-red-500' : 'bg-gray-300'}`}>
-                        <div className={`absolute top-1/2 -mt-2.5 h-5 w-5 rounded-full bg-white shadow-md transform transition-transform duration-200 ease-in-out ${banner.published ? 'right-0.5' : 'left-0.5'}`} />
-                      </div>
-                    </button>
-                  </td>
-                  <td className='py-4 px-4'>
-                    <div className='flex space-x-2'>
-                      <Link to={`/banner/detail/${banner.id}`} className='p-1 hover:bg-gray-100 rounded'>
-                        <img src={eyeIcon} alt='View' className='w-5 h-5' />
-                      </Link>
-                      <Link to={`/banner/edit/${banner.id}`} className='p-1 hover:bg-gray-100 rounded'>
-                        <img src={pencilIcon} alt='Edit' className='w-5 h-5' />
-                      </Link>
-                      <button className='p-1 hover:bg-gray-100 rounded' onClick={() => handleDelete(banner.id)}>
-                        <img src={trashIcon} alt='Delete' className='w-5 h-5' />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {/* Pagination Component */}
+        {totalItems > 0 && (
+          <PaginationBanner
+            startIndex={startIndex}
+            endIndex={endIndex}
+            totalItems={totalItems}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            rowsPerPage={rowsPerPage}
+            setRowsPerPage={setRowsPerPage}
+            setCurrentPage={setCurrentPage}
+            prevPage={prevPage}
+            nextPage={nextPage}
+          />
+        )}
 
-        {/* Pagination */}
-        <div className='flex justify-between items-center mt-4 px-4'>
-          <div className='text-sm text-gray-600'>{`${startIndex + 1}-${endIndex} of ${totalItems}`}</div>
-          <div className='flex items-center space-x-4'>
-            <div className='flex items-center'>
-              <span className='mr-2 text-sm text-gray-600'>Rows per page:</span>
-              <select
-                className='border rounded p-1'
-                value={rowsPerPage}
-                onChange={(e) => {
-                  setRowsPerPage(Number(e.target.value));
-                  setCurrentPage(1);
-                }}>
-                <option value={10}>10</option>
-                <option value={20}>20</option>
-                <option value={30}>30</option>
-              </select>
-            </div>
-            <div className='flex items-center space-x-1'>
-              <button onClick={prevPage} disabled={currentPage === 1} className={`p-1 rounded hover:bg-gray-100 ${currentPage === 1 ? 'text-gray-300' : 'text-gray-600'}`}>
-                <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 19l-7-7 7-7' />
-                </svg>
-              </button>
-              <span className='px-2'>{`${currentPage}/${totalPages}`}</span>
-              <button onClick={nextPage} disabled={currentPage === totalPages} className={`p-1 rounded hover:bg-gray-100 ${currentPage === totalPages ? 'text-gray-300' : 'text-gray-600'}`}>
-                <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
+        {/* Alert Dialog for Delete Confirmation */}
+        <AlertDialog 
+          isOpen={isAlertOpen} 
+          onClose={() => !isDeleting && setIsAlertOpen(false)} 
+          onConfirm={handleConfirmDelete}
+          title="Delete Banner?"
+          message={`Are you sure want to delete "${bannerToDelete?.name}"?`}
+          icon="trash"
+          disabled={isDeleting}
+          confirmText={isDeleting ? "Deleting..." : "Delete"}
+          cancelText="Cancel"
+        />
       </div>
     </div>
   );

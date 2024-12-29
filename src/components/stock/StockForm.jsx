@@ -94,6 +94,9 @@ const StockForm = ({ stocks = [], onAdd, onUpdate }) => {
 
   const { title, buttonText, isReadOnly, successMessage } = getFormConfig();
 
+  console.log(stocks);
+  
+
   // Load existing stock data if editing or viewing details
   useEffect(() => {
     if (id && stocks && (formType === 'edit' || formType === 'detail')) {

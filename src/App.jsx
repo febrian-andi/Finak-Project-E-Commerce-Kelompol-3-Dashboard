@@ -197,7 +197,7 @@ function App() {
               }
             />
             <Route
-              path="/stock/edit"
+              path="/stock/edit/:id"
               element={
                 <ProtectedRoute>
                   <StockForm />
@@ -205,7 +205,7 @@ function App() {
               }
             />
             <Route
-              path="/stock/detail"
+              path="/stock/detail/:id"
               element={
                 <ProtectedRoute>
                   <StockForm />
