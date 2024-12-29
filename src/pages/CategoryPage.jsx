@@ -1,4 +1,4 @@
-// File: CategoryPage.jsx
+// File: pages/CategoryPage.jsx
 import React, { useState } from 'react';
 import CategoryHeader from '../components/category/CategoryHeader';
 import CategoryTable from '../components/category/CategoryTable';
@@ -12,8 +12,8 @@ const CategoryPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [rowsPerPage, setRowsPerPage] = useState(20);
   const [categories, setCategories] = useState([
-    { name: 'Electronic', icon: 'Electronic', published: true },
-    { name: 'Home & Lifestyle', icon: 'Home & Lifestyle', published: false },
+    { id: 1, name: 'Electronic', icon: 'Electronic', published: true },
+    { id: 2, name: 'Home & Lifestyle', icon: 'Home & Lifestyle', published: false },
   ]);
 
   const handleAddNew = () => {
@@ -28,15 +28,36 @@ const CategoryPage = () => {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (index) => {
-    const updatedCategories = categories.filter((_, i) => i !== index);
-    setCategories(updatedCategories);
+  const handleSubmit = (formData) => {
+    if (modalMode === 'add') {
+      // Add new category
+      setCategories([
+        ...categories,
+        {
+          id: categories.length + 1,
+          ...formData
+        }
+      ]);
+    } else if (modalMode === 'edit' && selectedCategory) {
+      // Update existing category
+      setCategories(categories.map(cat => 
+        cat.id === selectedCategory.id 
+          ? { ...cat, ...formData }
+          : cat
+      ));
+    }
   };
 
-  const togglePublish = (index) => {
-    const newCategories = [...categories];
-    newCategories[index].published = !newCategories[index].published;
-    setCategories(newCategories);
+  const handleDelete = (categoryId) => {
+    setCategories(categories.filter(cat => cat.id !== categoryId));
+  };
+
+  const togglePublish = (categoryId) => {
+    setCategories(categories.map(cat => 
+      cat.id === categoryId 
+        ? { ...cat, published: !cat.published }
+        : cat
+    ));
   };
 
   const closeModal = () => {
@@ -44,29 +65,25 @@ const CategoryPage = () => {
     setSelectedCategory(null);
   };
 
+  // Pagination calculations
   const totalItems = categories.length;
   const totalPages = Math.ceil(totalItems / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
   const currentItems = categories.slice(startIndex, endIndex);
 
-  const nextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
   return (
     <div className='min-h-screen bg-gray-100 p-6'>
       <div className='bg-white rounded-lg p-6 shadow'>
         <CategoryHeader onAddNew={handleAddNew} />
-        <CategoryTable categories={currentItems} onEdit={handleEdit} onDelete={handleDelete} togglePublish={togglePublish} />
+        
+        <CategoryTable 
+          categories={currentItems} 
+          onEdit={handleEdit} 
+          onDelete={handleDelete} 
+          togglePublish={togglePublish} 
+        />
+        
         <CategoryPagination
           currentPage={currentPage}
           totalPages={totalPages}
@@ -78,11 +95,17 @@ const CategoryPage = () => {
             setRowsPerPage(value);
             setCurrentPage(1);
           }}
-          nextPage={nextPage}
-          prevPage={prevPage}
+          setCurrentPage={setCurrentPage}
         />
       </div>
-      <CategoryFormModal isOpen={isModalOpen} onClose={closeModal} mode={modalMode} initialData={selectedCategory} />
+
+      <CategoryFormModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal} 
+        mode={modalMode} 
+        initialData={selectedCategory}
+        onSubmit={handleSubmit}
+      />
     </div>
   );
 };
