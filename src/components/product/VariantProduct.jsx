@@ -1,5 +1,6 @@
 // components/product/VariantModal.jsx
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const VariantModal = ({ variants = [], onClose, onAdd }) => {
   const [variantInput, setVariantInput] = useState('');
@@ -183,5 +184,12 @@ const VariantModal = ({ variants = [], onClose, onAdd }) => {
     </div>
   );
 };
+
+VariantModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
+
 
 export default VariantModal;
