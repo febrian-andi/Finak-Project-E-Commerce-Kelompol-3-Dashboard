@@ -1,16 +1,86 @@
-import React, { useState, useRef } from 'react';
-import TrashIcon from '../../assets/category/TrashIcon';
+// # 1. File: components/category/CategoryFormModal.jsx
+
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import TrashIconCategoryForm from '../../assets/category/TrashIconCategoryForm';
+import PhotoPreview from '../../assets/category/PhotoPreview';
 
 const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null }) => {
+  // Set formData berdasarkan mode
   const [formData, setFormData] = useState({
-    name: initialData?.name || '',
-    icon: initialData?.icon || null,
+    name: mode === 'edit' ? initialData?.name : '',
+    icon: mode === 'edit' ? initialData?.icon : null,
   });
+
+  // Set uploadedFile berdasarkan mode
+  const [uploadedFile, setUploadedFile] = useState(
+    mode === 'edit' && initialData?.icon
+      ? {
+          name: 'Current Icon',
+          preview: initialData.icon,
+        }
+      : null
+  );
+
   const [errors, setErrors] = useState({});
-  const [uploadedFile, setUploadedFile] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef(null);
+
+  // Reset state ketika modal ditutup
+  useEffect(() => {
+    if (!isOpen) {
+      setFormData({
+        name: '',
+        icon: null,
+      });
+      setUploadedFile(null);
+      setErrors({});
+    }
+  }, [isOpen]);
+
+  // Update form data ketika mode atau initialData berubah
+  useEffect(() => {
+    if (mode === 'edit' && initialData) {
+      setFormData({
+        name: initialData.name || '',
+        icon: initialData.icon || null,
+      });
+
+      if (initialData.icon) {
+        setUploadedFile({
+          name: 'Current Icon',
+          preview: initialData.icon,
+        });
+      }
+    }
+  }, [mode, initialData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Validasi
+    const newErrors = {};
+    if (!formData.name.trim()) {
+      newErrors.name = 'Category name is required';
+    }
+    if (!uploadedFile && mode === 'add') {
+      newErrors.icon = 'Category icon is required';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    // Submit data
+    const submitData = {
+      ...formData,
+      icon: uploadedFile?.preview || null,
+    };
+
+    onSubmit(submitData);
+    onClose();
+  };
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -41,6 +111,7 @@ const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null }
           name: file.name,
           preview: URL.createObjectURL(file),
         });
+        setFormData((prev) => ({ ...prev, icon: file }));
         setErrors({ ...errors, icon: null });
       } else {
         setErrors({ ...errors, icon: 'Please upload SVG, PNG, or JPG file' });
@@ -65,14 +136,17 @@ const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null }
       <div className='bg-white rounded-lg p-6 max-w-2xl w-full mx-4'>
         <h2 className='text-2xl font-semibold mb-8'>{mode === 'add' ? 'Add Category' : mode === 'edit' ? 'Edit Category' : 'View Category'}</h2>
 
-        <form className='space-y-6'>
+        <form onSubmit={handleSubmit} className='space-y-6'>
           {/* Category Name Field */}
           <div>
             <label className='block text-xl mb-2'>Category Name</label>
             <input
               type='text'
               value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              onChange={(e) => {
+                setFormData({ ...formData, name: e.target.value });
+                if (errors.name) setErrors({ ...errors, name: null });
+              }}
               className={`w-full p-4 rounded-lg bg-gray-50 border ${errors.name ? 'border-red-500' : 'border-gray-200'}`}
               placeholder='Enter Category Name'
               disabled={mode === 'view'}
@@ -109,14 +183,12 @@ const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null }
               {uploadedFile && (
                 <div className='mt-4 flex items-center justify-between p-3 border rounded-lg border-red-500'>
                   <div className='flex items-center'>
-                    <div className='bg-red-50 p-2 rounded'>
-                      <img src={uploadedFile.preview} alt='Preview' className='w-6 h-6 object-cover' />
-                    </div>
+                    <PhotoPreview />
                     <span className='ml-3 text-gray-700'>{uploadedFile.name}</span>
                   </div>
                   {mode !== 'view' && (
                     <button type='button' onClick={removeFile} className='text-red-500 hover:text-red-700'>
-                      <TrashIcon className='w-5 h-5' />
+                      <TrashIconCategoryForm />
                     </button>
                   )}
                 </div>
@@ -150,6 +222,7 @@ CategoryFormModal.propTypes = {
     name: PropTypes.string,
     icon: PropTypes.string,
   }),
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default CategoryFormModal;
