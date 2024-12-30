@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const HeaderOrders = ({ title, breadcrumbs }) => {
+const HeaderOrders = ({ title, breadcrumbs, handleDownload }) => {
   return (
     <div className="flex justify-between items-center mb-6">
       <div>
@@ -15,7 +14,7 @@ const HeaderOrders = ({ title, breadcrumbs }) => {
           ))}
         </div>
       </div>
-      <button className="border border-red-500 text-red-500 hover:bg-red-600 hover:text-white px-4 py-2 rounded">
+      <button onClick={handleDownload} className="border border-red-500 text-red-500 hover:bg-red-600 hover:text-white px-4 py-2 rounded">
         Download All
       </button>
     </div>

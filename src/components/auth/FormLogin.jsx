@@ -1,17 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Eye from "../../assets/auth/Eye";
 import EyeOf from "../../assets/auth/EyeOf";
 import { useSelector } from "react-redux";
 import LoadingSpinner from "../LoadingSpinner";
+import { useDispatch } from "react-redux";
+import { setErrorNull } from "../../redux/slices/authSlice";
 
 const FormLogin = ({ formData, handleInputChange, handleSubmit }) => {
   const { loading, error } = useSelector((state) => state.auth);
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-  
   const togglePassword = () => {
     setPasswordVisibility(!passwordVisibility);
   };
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setErrorNull());
+  }, [dispatch]);
 
   return (
     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 max-w-md mx-auto">
