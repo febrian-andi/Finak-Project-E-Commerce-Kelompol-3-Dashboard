@@ -8,7 +8,7 @@ import filterIcon from "../../assets/product/filterIcon.svg";
 import SuccessAlert from "../sweetalert/SuccessAlert";
 import { useDeleteData } from "../../hooks/useDeleteData";
 import { useFetchData } from "../../hooks/useFetchData";
-import { useUpdateData } from "../../hooks/UseUpdateData";
+import { useUpdateData } from "../../hooks/useUpdateData";
 
 const TablePromotion = ({ promotions }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });

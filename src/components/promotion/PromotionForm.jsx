@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useFetchData } from "../../hooks/useFetchData";
 import { usePostData } from "../../hooks/usePostData";
-import { useUpdateData } from "../../hooks/UseUpdateData";
+import { useUpdateData } from "../../hooks/useUpdateData";
 import LoadingSpinner from "../LoadingSpinner";
 
 const PromotionForm = () => {
