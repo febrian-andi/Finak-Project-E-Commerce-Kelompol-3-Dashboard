@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StatusOrder from "./StatusOrder";
 import { useFetchData } from "../../hooks/useFetchData";
-import { useUpdateData } from "../../hooks/UseUpdateData";
+import { useUpdateData } from "../../hooks/useUpdateData";
 import LoadingSpinner from "../LoadingSpinner";
 
 const DetailOrdersModal = ({ isOpen, onClose, order, action }) => {
