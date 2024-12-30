@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import filterIcon from '../../assets/product/filterIcon.svg';
-import eyeIcon from '../../assets/product/eye.svg';
-import pencilIcon from '../../assets/product/pencil.svg';
-import trashIcon from '../../assets/product/trash.svg';
+import ShortFilterIcon from '../../assets/product/ShortFilterIcon';
+import PencilIcon from '../../assets/product/PencilIcon';
+import EyeIcon from '../../assets/product/EyeIcon';
 import AlertDialog from '../sweetalert/AlertDialog';
 import SuccessAlert from '../sweetalert/SuccessAlert';
+
 import PropTypes from 'prop-types';
+import TrashIcon from '../../assets/product/TrashIcon';
 
 const TableProduct = ({ products = [], onTogglePublish, onDelete }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
@@ -101,21 +102,15 @@ const TableProduct = ({ products = [], onTogglePublish, onDelete }) => {
 
   return (
     <>
-      <div className='overflow-x-auto'>
+      <div className='overflow-x-auto' data-testid='table-product'>
         <table className='w-full'>
           <thead>
             <tr className='bg-gray-50'>
               {headers.map((header) => (
                 <th key={header} className='text-left px-6 py-4 whitespace-nowrap'>
-                  <div className='flex items-center gap-1' onClick={() => header !== 'Action' && handleSort(header)}>
+                  <div className='flex items-center gap-1' onClick={() => header !== 'Action' && handleSort(header)} data-testid={`table-header-${header.replace(/ /g, '-').toLowerCase()}`}>
                     <span className={header !== 'Action' ? 'cursor-pointer' : ''}>{header}</span>
-                    {header !== 'Action' && (
-                      <img
-                        src={filterIcon}
-                        alt='filter'
-                        className={`inline-block ml-1 cursor-pointer transition-transform duration-200 ${sortConfig.key === headerMapping[header] && sortConfig.direction === 'desc' ? 'transform rotate-180' : ''}`}
-                      />
-                    )}
+                   <ShortFilterIcon />
                   </div>
                 </th>
               ))}
@@ -123,15 +118,17 @@ const TableProduct = ({ products = [], onTogglePublish, onDelete }) => {
           </thead>
           <tbody>
             {sortedProducts.map((product) => (
-              <tr key={product.id} className='border-b border-gray-100'>
-                <td className='px-6 py-4 whitespace-nowrap'>{product.name}</td>
+              <tr key={product.id} className='border-b border-gray-100' data-testid={`table-row-${product.id}`}>
+                <td className='px-6 py-4 whitespace-nowrap' data-testid={`product-name-${product.id}`}>
+                  {product.name}
+                </td>
                 <td className='px-6 py-4 whitespace-nowrap'>{product.sku}</td>
                 <td className='px-6 py-4 whitespace-nowrap'>{product.stock}</td>
                 <td className='px-6 py-4 whitespace-nowrap'>{product.category}</td>
                 <td className='px-6 py-4 whitespace-nowrap'>{product.price}</td>
                 <td className='px-6 py-4 whitespace-nowrap'>
                   <label className='relative inline-flex items-center cursor-pointer'>
-                    <input type='checkbox' className='sr-only peer' checked={product.published} onChange={() => handleToggleClick(product)} />
+                    <input type='checkbox' className='sr-only peer' checked={product.published} onChange={() => handleToggleClick(product)} data-testid={`toggle-publish-${product.id}`} />
                     <div
                       className={`w-12 h-6 rounded-full p-1 peer peer-checked:after:translate-x-6 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all ${
                         product.published ? 'bg-red-500' : 'bg-gray-300'
@@ -141,14 +138,14 @@ const TableProduct = ({ products = [], onTogglePublish, onDelete }) => {
                 </td>
                 <td className='px-6 py-4 whitespace-nowrap'>
                   <div className='flex gap-2'>
-                    <Link to={`/product/detail/${product.id}`} className='hover:bg-gray-100 p-2 rounded-md' title='View Detail'>
-                      <img src={eyeIcon} alt='view' className='w-5 h-5' />
+                    <Link to={`/product/detail/${product.id}`} className='hover:bg-gray-100 p-2 rounded-md' title='View Detail' data-testid={`view-detail-${product.id}`}>
+                      <EyeIcon />
                     </Link>
-                    <Link to={`/product/edit/${product.id}`} className='hover:bg-gray-100 p-2 rounded-md' title='Edit Product'>
-                      <img src={pencilIcon} alt='edit' className='w-5 h-5' />
+                    <Link to={`/product/edit/${product.id}`} className='hover:bg-gray-100 p-2 rounded-md' title='Edit Product' data-testid={`edit-product-${product.id}`}>
+                      <PencilIcon />
                     </Link>
-                    <button onClick={() => handleDeleteClick(product)} className='hover:bg-gray-100 p-2 rounded-md' title='Delete Product'>
-                      <img src={trashIcon} alt='delete' className='w-5 h-5' />
+                    <button onClick={() => handleDeleteClick(product)} className='hover:bg-gray-100 p-2 rounded-md' title='Delete Product' data-testid={`delete-product-${product.id}`}>
+                      <TrashIcon />
                     </button>
                   </div>
                 </td>
@@ -167,6 +164,7 @@ const TableProduct = ({ products = [], onTogglePublish, onDelete }) => {
         icon='confirm'
         confirmLabel='Yes'
         cancelLabel='No'
+        data-testid='publish-alert-dialog'
       />
 
       <AlertDialog
@@ -178,13 +176,13 @@ const TableProduct = ({ products = [], onTogglePublish, onDelete }) => {
         icon='trash'
         confirmLabel='Yes'
         cancelLabel='No'
+        data-testid='delete-alert-dialog'
       />
 
-      <SuccessAlert isOpen={showSuccess} onClose={() => setShowSuccess(false)} message={successMessage} duration={1000} />
+      <SuccessAlert isOpen={showSuccess} onClose={() => setShowSuccess(false)} message={successMessage} duration={1000} data-testid='success-alert' />
     </>
   );
 };
-
 
 TableProduct.propTypes = {
   products: PropTypes.array,
