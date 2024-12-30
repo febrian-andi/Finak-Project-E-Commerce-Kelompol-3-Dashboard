@@ -37,6 +37,7 @@ const PaginationBanner = ({
           <button 
             onClick={prevPage} 
             disabled={currentPage === 1} 
+            aria-label="Previous Page"
             className={`p-1 rounded hover:bg-gray-100 ${
               currentPage === 1 ? 'text-gray-300' : 'text-gray-600'
             }`}
@@ -48,6 +49,7 @@ const PaginationBanner = ({
           <span className='px-2'>{`${currentPage}/${totalPages}`}</span>
           <button 
             onClick={nextPage} 
+            aria-label="Next Page"
             disabled={currentPage === totalPages} 
             className={`p-1 rounded hover:bg-gray-100 ${
               currentPage === totalPages ? 'text-gray-300' : 'text-gray-600'

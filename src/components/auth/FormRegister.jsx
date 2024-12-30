@@ -26,7 +26,7 @@ const FormRegister = ({ formData, handleInputChange, handleSubmit }) => {
           </div>
         )}
       </div>
-      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+      <form onSubmit={handleSubmit} data-testid="form-register" className="space-y-3 sm:space-y-4">
         <div className="space-y-1 sm:space-y-1.5">
           <label className="block text-sm font-medium">Full Name</label>
           <input

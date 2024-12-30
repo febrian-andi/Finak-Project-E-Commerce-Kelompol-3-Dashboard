@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1735495970085" clover="3.2.0">
+  <project timestamp="1735495970085" name="All files">
+    <metrics statements="134" coveredstatements="104" conditionals="73" coveredconditionals="25" methods="59" coveredmethods="36" elements="266" coveredelements="165" complexity="0" loc="134" ncloc="134" packages="9" files="22" classes="22"/>
+    <package name="assets.alert">
+      <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="ConfirmAlert.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\alert\ConfirmAlert.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+      <file name="SuccessAlertIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\alert\SuccessAlertIcon.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.auth">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="Eye.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\auth\Eye.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+      </file>
+      <file name="EyeOf.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\auth\EyeOf.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.banner">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="EyeIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\EyeIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+      </file>
+      <file name="PencilIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\PencilIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+      </file>
+      <file name="ShortFilterIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\ShortFilterIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="25" type="stmt"/>
+      </file>
+      <file name="TrashIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\TrashIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.home">
+      <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="BoxIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\BoxIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="0" falsecount="3"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+      <file name="CursorIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\CursorIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+      <file name="SalesIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\SalesIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+      <file name="UsersIcon.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\UsersIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="LoadingSpinner.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\LoadingSpinner.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="2" type="cond" truecount="0" falsecount="2"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.auth">
+      <metrics statements="50" coveredstatements="43" conditionals="31" coveredconditionals="13" methods="16" coveredmethods="12"/>
+      <file name="FormForgotPassword.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormForgotPassword.jsx">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+      </file>
+      <file name="FormLogin.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormLogin.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+      <file name="FormOTP .jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormOTP .jsx">
+        <metrics statements="27" coveredstatements="23" conditionals="11" coveredconditionals="5" methods="7" coveredmethods="5"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="20" count="8" type="cond" truecount="4" falsecount="0"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="11" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="46" count="11" type="stmt"/>
+        <line num="56" count="44" type="stmt"/>
+        <line num="62" count="8" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+      </file>
+      <file name="FormRegister.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormRegister.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.banner">
+      <metrics statements="46" coveredstatements="31" conditionals="16" coveredconditionals="10" methods="24" coveredmethods="11"/>
+      <file name="HeaderBanner.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\banner\HeaderBanner.jsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="49" count="20" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+      </file>
+      <file name="PaginationBanner.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\banner\PaginationBanner.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+      </file>
+      <file name="TableBanner.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\banner\TableBanner.jsx">
+        <metrics statements="31" coveredstatements="16" conditionals="12" coveredconditionals="6" methods="19" coveredmethods="6"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="78" count="10" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="139" count="0" type="cond" truecount="1" falsecount="1"/>
+        <line num="145" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.home">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="SummaryCard.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\home\SummaryCard.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="37" count="12" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.sweetalert">
+      <metrics statements="8" coveredstatements="4" conditionals="18" coveredconditionals="2" methods="4" coveredmethods="2"/>
+      <file name="SuccessAlert.jsx" path="C:\Users\UsEr\OneDrive\Dokumen\lumoshive\final-proyek\e-comerce\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\sweetalert\SuccessAlert.jsx">
+        <metrics statements="8" coveredstatements="4" conditionals="18" coveredconditionals="2" methods="4" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="10" count="5" type="stmt"/>
+        <line num="11" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="20" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
