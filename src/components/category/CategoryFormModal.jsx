@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import TrashIconCategoryForm from '../../assets/category/TrashIconCategoryForm';
 import PhotoPreview from '../../assets/category/PhotoPreview';
 
-const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null }) => {
+const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null, onSubmit }) => {
   // Set formData berdasarkan mode
   const [formData, setFormData] = useState({
     name: mode === 'edit' ? initialData?.name : '',
