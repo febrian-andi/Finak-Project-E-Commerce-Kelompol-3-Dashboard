@@ -12,7 +12,6 @@ const CategoryTable = ({ categories, onEdit, onDelete, togglePublish }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
 
-  // Handler untuk publish/unpublish
   const handlePublishConfirm = () => {
     if (selectedCategory) {
       togglePublish(selectedCategory.id);
@@ -22,13 +21,11 @@ const CategoryTable = ({ categories, onEdit, onDelete, togglePublish }) => {
     }
   };
 
-  // Handler untuk click toggle publish
   const handleToggleClick = (category) => {
     setSelectedCategory(category);
     setShowPublishConfirm(true);
   };
 
-  // Handler untuk click delete
   const handleDeleteClick = (category) => {
     setSelectedCategory(category);
     setShowDeleteConfirm(true);
@@ -45,50 +42,54 @@ const CategoryTable = ({ categories, onEdit, onDelete, togglePublish }) => {
 
   return (
     <>
-      <div className='overflow-x-auto'>
-        <table className='w-full'>
+      <div className="overflow-x-auto">
+        <table className="w-full">
           <thead>
-            <tr className='border-b'>
-              <th className='text-left py-4 px-4'>Category Name</th>
-              <th className='text-left py-4 px-4'>Category Icon</th>
-              <th className='text-left py-4 px-4'>Published</th>
-              <th className='text-left py-4 px-4'>Action</th>
+            <tr className="border-b">
+              <th className="text-left py-4 px-4">Category Name</th>
+              <th className="text-left py-4 px-4">Category Icon</th>
+              <th className="text-left py-4 px-4">Published</th>
+              <th className="text-left py-4 px-4">Action</th>
             </tr>
           </thead>
           <tbody>
             {categories.map((category) => (
-              <tr key={category.id} className='border-b hover:bg-gray-50'>
-                <td className='py-4 px-4 text-gray-600'>{category.name}</td>
-                <td className='py-4 px-4 text-gray-600'>{category.icon}</td>
-                <td className='py-4 px-4'>
-                  <label className='relative inline-flex items-center cursor-pointer'>
+              <tr key={category.id} className="border-b hover:bg-gray-50" data-testid={`category-row-${category.id}`}>
+                <td className="py-4 px-4 text-gray-600" data-testid={`category-name-${category.id}`}>{category.name}</td>
+                <td className="py-4 px-4 text-gray-600" data-testid={`category-icon-${category.id}`}>{category.icon}</td>
+                <td className="py-4 px-4">
+                  <label className="relative inline-flex items-center cursor-pointer">
                     <input 
-                      type='checkbox' 
-                      className='sr-only peer' 
+                      type="checkbox" 
+                      className="sr-only peer" 
                       checked={category.published} 
                       onChange={() => handleToggleClick(category)}
+                      data-testid={`toggle-publish-${category.id}`}
                     />
                     <div
                       className={`w-12 h-6 rounded-full p-1 peer peer-checked:after:translate-x-6 
                         after:content-[''] after:absolute after:top-[2px] after:left-[2px] 
                         after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all
                         ${category.published ? 'bg-red-500' : 'bg-gray-300'}`}
+                      data-testid={`publish-indicator-${category.id}`}
                     />
                   </label>
                 </td>
-                <td className='py-4 px-4'>
-                  <div className='flex space-x-2'>
+                <td className="py-4 px-4">
+                  <div className="flex space-x-2">
                     <button 
-                      className='p-1 hover:bg-gray-100 rounded' 
+                      className="p-1 hover:bg-gray-100 rounded" 
                       onClick={() => onEdit(category)}
+                      data-testid={`edit-category-${category.id}`}
                     >
-                      <PencilIcon className='w-5 h-5' />
+                      <PencilIcon className="w-5 h-5" />
                     </button>
                     <button 
-                      className='p-1 hover:bg-gray-100 rounded' 
+                      className="p-1 hover:bg-gray-100 rounded" 
                       onClick={() => handleDeleteClick(category)}
+                      data-testid={`delete-category-${category.id}`}
                     >
-                      <TrashIcon className='w-5 h-5' />
+                      <TrashIcon className="w-5 h-5" />
                     </button>
                   </div>
                 </td>
@@ -103,11 +104,12 @@ const CategoryTable = ({ categories, onEdit, onDelete, togglePublish }) => {
         isOpen={showPublishConfirm}
         onClose={() => setShowPublishConfirm(false)}
         onConfirm={handlePublishConfirm}
-        title='Confirmation'
+        title="Confirmation"
         message={`Are you sure want to ${selectedCategory?.published ? 'unpublish' : 'publish'} this category?`}
-        icon='confirm'
-        confirmLabel='Yes'
-        cancelLabel='No'
+        icon="confirm"
+        confirmLabel="Yes"
+        cancelLabel="No"
+        data-testid="publish-confirm-dialog"
       />
 
       {/* Delete Alert */}
@@ -115,11 +117,12 @@ const CategoryTable = ({ categories, onEdit, onDelete, togglePublish }) => {
         isOpen={showDeleteConfirm}
         onClose={() => setShowDeleteConfirm(false)}
         onConfirm={handleDeleteConfirm}
-        title='Delete Category'
-        message='Are you sure want to delete this category?'
-        icon='trash'
-        confirmLabel='Yes'
-        cancelLabel='No'
+        title="Delete Category"
+        message="Are you sure want to delete this category?"
+        icon="trash"
+        confirmLabel="Yes"
+        cancelLabel="No"
+        data-testid="delete-confirm-dialog"
       />
 
       {/* Success Alert */}
@@ -128,6 +131,7 @@ const CategoryTable = ({ categories, onEdit, onDelete, togglePublish }) => {
         onClose={() => setShowSuccess(false)} 
         message={successMessage} 
         duration={1000} 
+        data-testid="success-alert"
       />
     </>
   );
