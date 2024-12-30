@@ -152,19 +152,19 @@ const BannerForm = ({ banners = [], selectedBanner, onAdd, onUpdate }) => {
               {/* Banner Name */}
               <div>
                 <label className='block mb-2 font-medium'>Banner Name</label>
-                <input type='text' name='name' value={formData.name} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' placeholder='Enter Banner Name' readOnly={isReadOnly} />
+                <input type='text' name='name' value={formData.name} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' placeholder='Enter Banner Name' readOnly={isReadOnly} required />
               </div>
 
               {/* End Date */}
               <div>
                 <label className='block mb-2 font-medium'>End Date</label>
-                <input type='date' placeholder name='endDate' value={formData.endDate} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' readOnly={isReadOnly} />
+                <input type='date' placeholder name='endDate' value={formData.endDate} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' readOnly={isReadOnly} required />
               </div>
 
               {/* Banner Type */}
               <div>
                 <label className='block mb-2 font-medium'>Banner Type</label>
-                <select name='bannerType' value={formData.bannerType} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' disabled={isReadOnly}>
+                <select name='bannerType' value={formData.bannerType} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' disabled={isReadOnly} required>
                   <option value=''>Select Banner Type</option>
                   <option value='main'>Main Banner</option>
                   <option value='side'>Side Banner</option>
@@ -178,13 +178,13 @@ const BannerForm = ({ banners = [], selectedBanner, onAdd, onUpdate }) => {
               {/* Release Date */}
               <div>
                 <label className='block mb-2 font-medium'>Release Date</label>
-                <input type='date' name='releaseDate' value={formData.releaseDate} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' readOnly={isReadOnly} />
+                <input type='date' name='releaseDate' value={formData.releaseDate} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' readOnly={isReadOnly} required />
               </div>
 
               {/* Target URL */}
               <div>
                 <label className='block mb-2 font-medium'>Target URL</label>
-                <input type='text' name='targetUrl' value={formData.targetUrl} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' placeholder='Enter Target URL' readOnly={isReadOnly} />
+                <input type='text' name='targetUrl' value={formData.targetUrl} onChange={handleInputChange} className='w-full p-3 rounded-lg bg-gray-50' placeholder='Enter Target URL' readOnly={isReadOnly} required />
               </div>
 
               {/* Banner Photo */}
@@ -206,7 +206,7 @@ const BannerForm = ({ banners = [], selectedBanner, onAdd, onUpdate }) => {
                         </div>
                         <div className='text-sm text-gray-500'>SVG, PNG, JPG</div>
                         <div className='text-sm text-gray-500'>(max. 800x400px)</div>
-                        <input type='file' id='photo-upload' className='hidden' accept='image/svg+xml,image/png,image/jpeg' onChange={handlePhotoChange} />
+                        <input type='file' id='photo-upload' className='hidden' accept='image/svg+xml,image/png,image/jpeg' onChange={handlePhotoChange} required />
                       </div>
                     </div>
 

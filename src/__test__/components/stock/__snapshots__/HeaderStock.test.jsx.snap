@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderStock Component matches snapshot 1`] = `
+<div>
+  <div
+    class="flex justify-between items-center mb-6"
+  >
+    <div>
+      <h1
+        class="text-2xl font-semibold mb-1"
+      >
+        Stock Management
+      </h1>
+      <div
+        class="flex items-center text-sm space-x-2"
+      >
+        <span
+          class="text-red-500"
+        >
+          Dashboard
+        </span>
+        <span
+          class="text-red-500"
+        >
+          &gt;
+        </span>
+        <span
+          class="text-red-500"
+        >
+          Stock
+        </span>
+      </div>
+    </div>
+    <a
+      class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
+      data-discover="true"
+      href="/stock/add"
+    >
+      Add New Stock
+    </a>
+  </div>
+</div>
+`;

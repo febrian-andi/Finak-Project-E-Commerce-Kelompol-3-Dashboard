@@ -27,10 +27,8 @@ const ProductForm = ({ mode = 'add' }) => {
     photo: null,
   });
 
-  // Load dummy data untuk mode edit dan detail
   useEffect(() => {
     if (mode === 'edit' || mode === 'detail') {
-      // Dummy data untuk gambar
       const dummyImages = [
         'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=320&fit=crop',
         'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=320&fit=crop',
@@ -58,7 +56,6 @@ const ProductForm = ({ mode = 'add' }) => {
     }
   }, [mode]);
 
-  // Handle form field changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -67,7 +64,6 @@ const ProductForm = ({ mode = 'add' }) => {
     }));
   };
 
-  // Handle photo changes
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -115,7 +111,6 @@ const ProductForm = ({ mode = 'add' }) => {
     setPhotoPreviews([defaultPhoto, ...updatedPreviews]);
   };
 
-  // Handle variants
   const handleVariantUpdate = (updatedVariants) => {
     setVariants(updatedVariants);
     setShowVariantModal(false);
@@ -134,40 +129,78 @@ const ProductForm = ({ mode = 'add' }) => {
   };
 
   return (
-    <div className='min-h-screen bg-gray-100 p-6'>
-      <div className='bg-white rounded-lg shadow-sm p-6'>
-        <ProductHeader mode={mode} />
+    <div className='min-h-screen bg-gray-100 p-6' data-testid='product-form'>
+      <div className='bg-white rounded-lg shadow-sm p-6' data-testid='product-form-container'>
+        <ProductHeader mode={mode} data-testid='product-header' />
 
-        <div className='space-y-6'>
+        <div className='space-y-6' data-testid='form-sections'>
           <ProductDetailsForm
             formData={formData}
             handleInputChange={handleInputChange}
             variants={variants}
             setShowVariantModal={setShowVariantModal}
             isReadOnly={isReadOnly}
-            mode={mode} // Tambahin ini
+            mode={mode}
+            data-testid='product-details-form'
           />
 
-          {!isReadOnly && <ProductPhotoUploader photoPreviews={photoPreviews} handlePhotoChange={handlePhotoChange} handlePhotoDrop={handlePhotoDrop} handlePhotoDelete={handlePhotoDelete} handleSetDefaultPhoto={handleSetDefaultPhoto} />}
+          {!isReadOnly && (
+            <ProductPhotoUploader
+              photoPreviews={photoPreviews}
+              handlePhotoChange={handlePhotoChange}
+              handlePhotoDrop={handlePhotoDrop}
+              handlePhotoDelete={handlePhotoDelete}
+              handleSetDefaultPhoto={handleSetDefaultPhoto}
+              data-testid='photo-uploader'
+            />
+          )}
 
           {isReadOnly && photoPreviews.length > 0 && (
-            <div className='grid grid-cols-5 gap-4 mt-4'>
+            <div className='grid grid-cols-5 gap-4 mt-4' data-testid='photo-previews'>
               {photoPreviews.map((preview, index) => (
-                <div key={index} className='relative aspect-square bg-gray-50 rounded-lg overflow-hidden'>
-                  <img src={preview} alt={`Preview ${index + 1}`} className='w-full h-full object-cover' />
-                  {index === 0 && <div className='absolute top-2 left-2 px-2 py-1 text-xs bg-purple-500 text-white rounded'>Default</div>}
+                <div
+                  key={index}
+                  className='relative aspect-square bg-gray-50 rounded-lg overflow-hidden'
+                  data-testid={`photo-preview-${index}`}
+                >
+                  <img
+                    src={preview}
+                    alt={`Preview ${index + 1}`}
+                    className='w-full h-full object-cover'
+                  />
+                  {index === 0 && (
+                    <div
+                      className='absolute top-2 left-2 px-2 py-1 text-xs bg-purple-500 text-white rounded'
+                      data-testid='default-photo-label'
+                    >
+                      Default
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           )}
 
-          <ProductActions mode={mode} onSave={handleSave} />
+          <ProductActions mode={mode} onSave={handleSave} data-testid='product-actions' />
         </div>
       </div>
 
-      {showVariantModal && <VariantModal variants={variants} onClose={() => setShowVariantModal(false)} onAdd={handleVariantUpdate} />}
+      {showVariantModal && (
+        <VariantModal
+          variants={variants}
+          onClose={() => setShowVariantModal(false)}
+          onAdd={handleVariantUpdate}
+          data-testid='variant-modal'
+        />
+      )}
 
-      <SuccessAlert isOpen={showSuccess} onClose={() => setShowSuccess(false)} message={`This product was successfully ${mode === 'edit' ? 'updated' : 'added'}`} duration={2000} />
+      <SuccessAlert
+        isOpen={showSuccess}
+        onClose={() => setShowSuccess(false)}
+        message={`This product was successfully ${mode === 'edit' ? 'updated' : 'added'}`}
+        duration={2000}
+        data-testid='success-alert'
+      />
     </div>
   );
 };

@@ -37,7 +37,7 @@ const AuthPage = () => {
       }
     } catch (error) {
       console.error('Auth error:', error);
-      alert(error || "An error occurred. Please try again.");
+      alert(error || 'An error occurred. Please try again.');
     }
   };
 
@@ -67,20 +67,8 @@ const AuthPage = () => {
       <div className={`w-full max-w-[1100px] min-h-[700px] p-5 flex flex-col lg:flex-row rounded-2xl sm:rounded-3xl bg-white shadow-xl overflow-hidden`}>
         {/* Left side - Auth forms */}
         <div className={`w-full ${shouldShowBanner ? 'lg:w-1/2' : ''} flex items-center justify-center order-2 lg:order-1`}>
-          {location.pathname === '/login' && (
-            <FormLogin 
-              formData={formData} 
-              handleInputChange={handleInputChange} 
-              handleSubmit={handleSubmit} 
-            />
-          )}
-          {location.pathname === '/register' && (
-            <FormRegister 
-              formData={formData} 
-              handleInputChange={handleInputChange} 
-              handleSubmit={handleSubmit} 
-            />
-          )}
+          {location.pathname === '/login' && <FormLogin formData={formData} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />}
+          {location.pathname === '/register' && <FormRegister formData={formData} handleInputChange={handleInputChange} handleSubmit={handleSubmit} />}
           {location.pathname === '/forgot-password' && <FormForgotPassword />}
           {location.pathname === '/verify-otp' && <FormOTP />}
         </div>
@@ -89,12 +77,8 @@ const AuthPage = () => {
         {shouldShowBanner && (
           <div className='w-full lg:w-1/2 bg-red-500 p-6 sm:p-8 md:p-12 rounded-2xl text-white relative order-1 lg:order-2 min-h-[200px] lg:min-h-0'>
             <div className='space-y-2 sm:space-y-4'>
-              <h1 className='text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight text-center lg:text-left'>
-                Very good works are waiting for you
-              </h1>
-              <h2 className='text-xl sm:text-2xl text-center lg:text-left'>
-                {getTitle()}
-              </h2>
+              <h1 className='text-2xl sm:text-3xl lg:text-4xl font-medium leading-tight text-center lg:text-left'>Very good works are waiting for you</h1>
+              <h2 className='text-xl sm:text-2xl text-center lg:text-left'>{getTitle()}</h2>
             </div>
 
             <div className='hidden lg:block absolute bottom-20 left-12 space-y-40'>
@@ -103,11 +87,7 @@ const AuthPage = () => {
             </div>
 
             {/* Image - Only shown on desktop */}
-            <img 
-              src={womanImage} 
-              alt='Professional with laptop' 
-              className='hidden lg:block absolute bottom-0 right-0 w-[90%] object-cover' 
-            />
+            <img src={womanImage} alt='Professional with laptop' className='hidden lg:block absolute bottom-0 right-0 w-[90%] object-cover' />
           </div>
         )}
       </div>
