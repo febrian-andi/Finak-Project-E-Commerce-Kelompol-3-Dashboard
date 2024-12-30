@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useFetchData } from "../../hooks/useFetchData";
+import { usePostData } from "../../hooks/usePostData";
+import { useUpdateData } from "../../hooks/UseUpdateData";
+import LoadingSpinner from "../LoadingSpinner";
 
 const PromotionForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { promotion } = location.state || {};
   const [formData, setFormData] = useState({
-    promotion_type: "",
-    promotion_name: "",
-    product: "",
-    star_date: "",
-    end_date: "",
-    promotion_usage_limit: 0,
-    discount: 0,
+    promotion_type: promotion?.type || "",
+    promotion_name: promotion?.name || "",
+    product: promotion?.product_id || "",
+    start_date: promotion?.start_date || "",
+    end_date: promotion?.end_date || "",
+    promotion_usage_limit: promotion?.limit || 0,
+    amount: promotion?.amount.toString() || "0",
   });
+
+  const { data: products } = useFetchData("products");
 
   const getFormType = () => {
     if (location.pathname.includes("promotion/add")) return "add";
@@ -48,14 +55,66 @@ const PromotionForm = () => {
 
   const { title, buttonText, isReadOnly } = getFormConfig();
 
+  const { addData, isLoading: isLoadingAdd, error: errorAdd } = usePostData("promotions");
+  const handleAddData = async () => {
+    try {
+      await addData({
+        name: formData.promotion_name,
+        start_date: formData.start_date,
+        end_date: formData.end_date,
+        description: `Potongan ${formData.amount} rupiah`,
+        amount: parseInt(formData.amount),
+        type: formData.promotion_type,
+        publised: false,
+        limit: formData.promotion_usage_limit,
+        product_id: formData.product,
+      });
+      if(errorAdd) {
+        return alert("Failed to add promotion");
+      }
+      navigate("/promotion");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const { updateData, isLoading: isLoadingUpdate, error: errorUpdate } = useUpdateData("promotions");
+  const handleUpdateData = async () => {
+    try {
+      await updateData(promotion.id,{
+        name: formData.promotion_name,
+        start_date: formData.start_date,
+        end_date: formData.end_date,
+        description: `Potongan ${formData.amount} rupiah`,
+        amount: parseInt(formData.amount),
+        type: formData.promotion_type,
+        publised: false,
+        limit: formData.promotion_usage_limit,
+        product_id: formData.product,
+      });
+      if(errorUpdate) {
+        return alert("Failed to add promotion");
+      }
+      navigate("/promotion");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.promotion_usage_limit < 0 || formData.amount == "0") {
+      return alert("Promotion Usage Limit and Discount must be greater than 0");
+    };
+
     switch (formType) {
       case "add":
-        console.log("Adding new Promotion:", formData);
+        handleAddData();
+        // console.log("Adding new Promotion:", formData);
         break;
       case "edit":
-        console.log("Updating Promotion:", formData);
+        handleUpdateData();
+        // console.log("Updating Promotion:", formData);
         break;
       default:
         break;
@@ -109,12 +168,13 @@ const PromotionForm = () => {
                     setFormData({ ...formData, promotion_type: e.target.value })
                   }
                   disabled={isReadOnly}
+                  required
                 >
                   <option value="" disabled>
                     Select Promotion Type
                   </option>
-                  <option value="discount">Direct Discount</option>
-                  <option value="voucher">Voucher Code</option>
+                  <option value="Direct Discount">Direct Discount</option>
+                  <option value="Voucher Code">Voucher Code</option>
                 </select>
                 {!isReadOnly && (
                   <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -144,13 +204,16 @@ const PromotionForm = () => {
                       setFormData({ ...formData, product: e.target.value })
                     }
                     disabled={isReadOnly}
+                    required
                   >
                     <option value="" disabled>
                       Select Product
                     </option>
-                    <option value="laptop-pavilion">
-                      Laptop Pavilion - Warna Hitam
-                    </option>
+                    {products?.map((product) => (
+                      <option value={product.id} key={product.id}>
+                        {product.name}
+                      </option>
+                    ))}
                   </select>
                   {!isReadOnly && (
                     <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
@@ -181,6 +244,7 @@ const PromotionForm = () => {
                     setFormData({ ...formData, end_date: e.target.value })
                   }
                   readOnly={isReadOnly}
+                  required
                 />
               </div>
               <div>
@@ -198,6 +262,7 @@ const PromotionForm = () => {
                     })
                   }
                   readOnly={isReadOnly}
+                  required
                 />
               </div>
             </div>
@@ -205,13 +270,14 @@ const PromotionForm = () => {
               <div>
                 <label className="block text-base mb-2">Promotion Name</label>
                 <input
-                  type="number"
+                  type="text"
                   className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none"
                   value={formData.promotion_name}
                   onChange={(e) =>
                     setFormData({ ...formData, promotion_name: e.target.value })
                   }
-                  readOnly
+                  readOnly={isReadOnly}
+                  required
                 />
               </div>
               <div>
@@ -219,11 +285,12 @@ const PromotionForm = () => {
                 <input
                   type="date"
                   className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none"
-                  value={formData.star_date}
+                  value={formData.start_date}
                   onChange={(e) =>
-                    setFormData({ ...formData, star_date: e.target.value })
+                    setFormData({ ...formData, start_date: e.target.value })
                   }
                   readOnly={isReadOnly}
+                  required
                 />
               </div>
               <div>
@@ -231,22 +298,23 @@ const PromotionForm = () => {
                 <div className="relative">
                   <select
                     className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg appearance-none focus:outline-none"
-                    value={formData.product}
+                    value={formData.amount}
                     onChange={(e) =>
-                      setFormData({ ...formData, product: e.target.value })
+                      setFormData({ ...formData, amount: e.target.value })
                     }
                     disabled={isReadOnly}
+                    required
                   >
-                    <option value="" disabled>
+                    <option value="0">
                       Select Discount
                     </option>
-                    <option value={50000}>
+                    <option value="50000">
                       Amount : 50.000
                     </option>
-                    <option value={20000}>
+                    <option value="20000">
                       Amount : 20.000
                     </option>
-                    <option value={10000}>
+                    <option value="10000">
                       Amount : 10.000
                     </option>
                   </select>
@@ -274,6 +342,7 @@ const PromotionForm = () => {
           <div className="flex justify-end gap-4 mt-8">
             {formType !== "detail" && (
               <button
+                disabled={isLoadingAdd || isLoadingUpdate}
                 type="button"
                 onClick={handleCancel}
                 className="px-6 py-2 border border-red-500 text-red-500 rounded hover:bg-red-50"
@@ -282,6 +351,7 @@ const PromotionForm = () => {
               </button>
             )}
             <button
+              disabled={isLoadingAdd || isLoadingUpdate}
               type={formType === "detail" ? "button" : "submit"}
               onClick={formType === "detail" ? handleCancel : undefined}
               className={`px-6 py-2 rounded text-white ${
@@ -290,7 +360,7 @@ const PromotionForm = () => {
                   : "bg-red-500 hover:bg-red-600"
               }`}
             >
-              {buttonText}
+              {isLoadingAdd || isLoadingUpdate ? <LoadingSpinner/> : buttonText}
             </button>
           </div>
         </form>

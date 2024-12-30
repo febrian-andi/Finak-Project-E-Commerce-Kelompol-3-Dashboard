@@ -7,7 +7,6 @@ import FormOTP from '../components/auth/FormOTP ';
 import womanImage from '../assets/auth/woman.png';
 import { login, register } from '../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 
 const AuthPage = () => {
   const dispatch = useDispatch();

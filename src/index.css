@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 1cm;
+  }
+  
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-table,
+  #printable-table * {
+    visibility: visible;
+  }
+
+  #printable-table {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
