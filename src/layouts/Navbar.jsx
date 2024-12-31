@@ -8,6 +8,7 @@ import promotion_icon from '../assets/navbar/promotion_icon.svg';
 import banner_icon from '../assets/navbar/banner_icon.svg';
 import rating_icon from '../assets/navbar/rating_icon.svg';
 import stock_icon from '../assets/navbar/stock_icon.svg';
+import profile_icon from '../assets/navbar/profile_icon.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../redux/slices/authSlice';
    
@@ -72,7 +73,7 @@ const Navbar = () => {
         <div className="bg-black text-white p-6 min-w-[288px]">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
-              <img src="/api/placeholder/48/48" alt="Profile" className="w-full h-full object-cover" />
+              <img src={profile_icon} alt="Profile" className="w-full h-full object-cover" />
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-semibold truncate">{user?.name}</h3>
