@@ -5,6 +5,7 @@ import PhotoPreview from '../../assets/banner/PhotoPreview';
 import UploadBannerIcon from '../../assets/banner/UploadBannerIcon';
 import SuccessAlert from '../sweetalert/SuccessAlert';
 import PropTypes from 'prop-types';
+import DOMPurify from 'dompurify';
 
 const BannerForm = ({ banners = [], selectedBanner, onAdd, onUpdate }) => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const BannerForm = ({ banners = [], selectedBanner, onAdd, onUpdate }) => {
   const location = useLocation();
   const mode = location.pathname.includes('/add') ? 'add' : location.pathname.includes('/edit') ? 'edit' : 'detail';
 
-  console.log(banners);
+  // console.log(banners);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -48,7 +49,7 @@ const BannerForm = ({ banners = [], selectedBanner, onAdd, onUpdate }) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: DOMPurify.sanitize(value),
     }));
   };
 

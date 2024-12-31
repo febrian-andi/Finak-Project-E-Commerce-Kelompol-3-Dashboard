@@ -4,6 +4,7 @@ import { useFetchData } from "../../hooks/useFetchData";
 import { usePostData } from "../../hooks/usePostData";
 import { useUpdateData } from "../../hooks/useUpdateData";
 import LoadingSpinner from "../LoadingSpinner";
+import DOMPurify from "dompurify";
 
 const PromotionForm = () => {
   const location = useLocation();
@@ -274,7 +275,7 @@ const PromotionForm = () => {
                   className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none"
                   value={formData.promotion_name}
                   onChange={(e) =>
-                    setFormData({ ...formData, promotion_name: e.target.value })
+                    setFormData({ ...formData, promotion_name: DOMPurify.sanitize(e.target.value) })
                   }
                   readOnly={isReadOnly}
                   required

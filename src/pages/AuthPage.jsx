@@ -7,6 +7,7 @@ import FormOTP from '../components/auth/FormOTP ';
 import womanImage from '../assets/auth/woman.png';
 import { login, register } from '../redux/slices/authSlice';
 import { useDispatch } from 'react-redux';
+import DOMPurify from 'dompurify';
 
 const AuthPage = () => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const AuthPage = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: DOMPurify.sanitize(value),
     }));
   };
 

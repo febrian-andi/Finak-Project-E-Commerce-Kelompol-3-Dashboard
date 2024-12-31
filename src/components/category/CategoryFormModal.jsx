@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TrashIconCategoryForm from '../../assets/category/TrashIconCategoryForm';
 import PhotoPreview from '../../assets/category/PhotoPreview';
+import DOMPurify from 'dompurify';
 
 const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null, onSubmit }) => {
   // Set formData berdasarkan mode
@@ -149,7 +150,7 @@ const CategoryFormModal = ({ isOpen, onClose, mode = 'add', initialData = null, 
               type='text'
               value={formData.name}
               onChange={(e) => {
-                setFormData({ ...formData, name: e.target.value });
+                setFormData({ ...formData, name: DOMPurify.sanitize(e.target.value) });
                 if (errors.name) setErrors({ ...errors, name: null });
               }}
               className={`w-full p-4 rounded-lg bg-gray-50 border ${errors.name ? 'border-red-500' : 'border-gray-200'}`}
