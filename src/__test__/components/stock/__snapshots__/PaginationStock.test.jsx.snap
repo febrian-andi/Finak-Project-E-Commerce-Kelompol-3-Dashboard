@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaginationStock Component matches snapshot 1`] = `
+<div>
+  <div
+    class="flex items-center justify-between pt-4 mt-4 border-t border-gray-100"
+  >
+    <div
+      class="text-sm text-gray-600"
+    >
+      1-20 of 100
+    </div>
+    <div
+      class="flex items-center gap-4"
+    >
+      <div
+        class="flex items-center gap-2"
+      >
+        <span
+          class="text-sm text-gray-600"
+        >
+          Rows per page:
+        </span>
+        <select
+          class="border rounded p-1"
+        >
+          <option
+            value="20"
+          >
+            20
+          </option>
+          <option
+            value="50"
+          >
+            50
+          </option>
+          <option
+            value="100"
+          >
+            100
+          </option>
+        </select>
+      </div>
+      <div
+        class="flex items-center gap-2"
+      >
+        <button
+          class="p-1 rounded disabled:opacity-50"
+          disabled=""
+        >
+          <svg
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <span
+          class="text-sm text-gray-600"
+        >
+          1
+          /
+          5
+        </span>
+        <button
+          class="p-1 rounded disabled:opacity-50"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

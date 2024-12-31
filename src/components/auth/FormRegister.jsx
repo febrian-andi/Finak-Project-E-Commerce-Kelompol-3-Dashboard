@@ -1,23 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Eye from '../../assets/auth/Eye';
 import EyeOf from '../../assets/auth/EyeOf';
+import { useSelector } from 'react-redux';
+import LoadingSpinner from '../LoadingSpinner';
+import { useDispatch } from 'react-redux';
+import { setErrorNull } from "../../redux/slices/authSlice";
 
 const FormRegister = ({ formData, handleInputChange, handleSubmit }) => {
+  const { loading, error } = useSelector((state) => state.auth);
   const [passwordVisibility, setPasswordVisibility] = useState(false);
-
   const togglePassword = () => {
     setPasswordVisibility(!passwordVisibility);
   };
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setErrorNull());
+  }, [dispatch]);
+
   return (
     <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 py-8 md:py-12 max-w-md mx-auto">
       <h2 className="text-xl sm:text-2xl font-medium mb-1 text-center sm:text-left">Sign up</h2>
-      <p className="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6 text-center sm:text-left">
+      <p className="text-gray-500 text-xs sm:text-sm text-center sm:text-left">
         Start your 30-day free trial.
       </p>
-
-      <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+      <div className="mb-4 sm:mb-6 mt-4">
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 p-2 rounded relative">
+            <span className="block sm:inline text-sm">{error || "An error occurred. Please try again."}</span>
+          </div>
+        )}
+      </div>
+      <form onSubmit={handleSubmit} data-testid="form-register" className="space-y-3 sm:space-y-4">
         <div className="space-y-1 sm:space-y-1.5">
           <label className="block text-sm font-medium">Full Name</label>
           <input
@@ -69,8 +84,13 @@ const FormRegister = ({ formData, handleInputChange, handleSubmit }) => {
         <button
           type="submit"
           className="w-full py-2.5 sm:py-3 text-sm sm:text-base bg-red-500 text-white rounded-lg hover:bg-red-600 font-medium transition-colors duration-200"
+          disabled={loading}
         >
-          Get started
+          {loading ? (
+            <LoadingSpinner />
+          ) : (
+            "Get started"
+          )}
         </button>
       </form>
 

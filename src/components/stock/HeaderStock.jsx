@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropsTypes from 'prop-types';
 
 const HeaderStock = ({ title, breadcrumbs, onAddStock }) => {
   return (
@@ -21,5 +22,12 @@ const HeaderStock = ({ title, breadcrumbs, onAddStock }) => {
     </div>
   );
 };
+
+HeaderStock.propTypes = {
+  title: PropsTypes.string,
+  breadcrumbs: PropsTypes.array,
+  onAddStock: PropsTypes.func,
+};
+
 
 export default HeaderStock;

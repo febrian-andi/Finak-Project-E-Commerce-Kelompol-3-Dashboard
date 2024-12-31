@@ -2,7 +2,7 @@ import React from "react";
 import SummaryCard from "../components/home/SummaryCard";
 import TotalIncomeCard from "../components/home/TotalIncomeCard";
 import BestItemCard from "../components/home/BestItemCard";
-import RevenueChart from "../components/home/RevenueCart";
+import RevenueChart from "../components/home/RevenueChart";
 
 const HomePage = () => {
   return (

@@ -6,8 +6,8 @@ const BestItemCard = () => {
   const bestItem = [
     {
       id: 1,
-      name: "Kids Electric",
-      category: "Toys",
+      name: "Lamp",
+      category: "Electronics",
       icon: BoxIcon,
     },
     {

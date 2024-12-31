@@ -36,6 +36,7 @@ const PaginationPromotion = ({
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
             className="p-1 rounded disabled:opacity-50"
+            aria-label="Previous Page"
           >
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path
@@ -54,6 +55,7 @@ const PaginationPromotion = ({
             }
             disabled={currentPage === totalPages}
             className="p-1 rounded disabled:opacity-50"
+            aria-label="Next Page"
           >
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
               <path

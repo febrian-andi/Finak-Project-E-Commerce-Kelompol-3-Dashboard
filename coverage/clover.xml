@@ -1,46 +1,894 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1735359910861" clover="3.2.0">
-  <project timestamp="1735359910862" name="All files">
-    <metrics statements="14" coveredstatements="14" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="7" elements="27" coveredelements="21" complexity="0" loc="14" ncloc="14" packages="3" files="6" classes="6"/>
+<coverage generated="1735569743815" clover="3.2.0">
+  <project timestamp="1735569743815" name="All files">
+    <metrics statements="643" coveredstatements="479" conditionals="376" coveredconditionals="218" methods="253" coveredmethods="165" elements="1272" coveredelements="862" complexity="0" loc="643" ncloc="643" packages="18" files="64" classes="64"/>
+    <package name="assets.alert">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="ConfirmAlert.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\alert\ConfirmAlert.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+      <file name="SuccessAlertIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\alert\SuccessAlertIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+      </file>
+      <file name="TrashAlert.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\alert\TrashAlert.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.auth">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="Eye.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\auth\Eye.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="6" type="stmt"/>
+      </file>
+      <file name="EyeOf.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\auth\EyeOf.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.banner">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="EyeIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\EyeIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+      </file>
+      <file name="PencilIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\PencilIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+      </file>
+      <file name="ShortFilterIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\ShortFilterIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="25" type="stmt"/>
+      </file>
+      <file name="TrashIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\banner\TrashIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.category">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="PencilIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\category\PencilIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+      </file>
+      <file name="PhotoPreview.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\category\PhotoPreview.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="TrashIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\category\TrashIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="22" type="stmt"/>
+      </file>
+      <file name="TrashIconCategoryForm.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\category\TrashIconCategoryForm.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+    </package>
     <package name="assets.home">
       <metrics statements="8" coveredstatements="8" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="4"/>
-      <file name="BoxIcon.jsx" path="D:\Course, Bootcamp\Lumoshive Academy\Tugas\Final Project\final-project-e-commerce-kelompok-3-dashboard\src\assets\home\BoxIcon.jsx">
+      <file name="BoxIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\BoxIcon.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="cond" truecount="0" falsecount="3"/>
         <line num="4" count="3" type="stmt"/>
       </file>
-      <file name="CursorIcon.jsx" path="D:\Course, Bootcamp\Lumoshive Academy\Tugas\Final Project\final-project-e-commerce-kelompok-3-dashboard\src\assets\home\CursorIcon.jsx">
+      <file name="CursorIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\CursorIcon.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="4" count="3" type="stmt"/>
       </file>
-      <file name="SalesIcon.jsx" path="D:\Course, Bootcamp\Lumoshive Academy\Tugas\Final Project\final-project-e-commerce-kelompok-3-dashboard\src\assets\home\SalesIcon.jsx">
+      <file name="SalesIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\SalesIcon.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="4" count="3" type="stmt"/>
       </file>
-      <file name="UsersIcon.jsx" path="D:\Course, Bootcamp\Lumoshive Academy\Tugas\Final Project\final-project-e-commerce-kelompok-3-dashboard\src\assets\home\UsersIcon.jsx">
+      <file name="UsersIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\home\UsersIcon.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="cond" truecount="0" falsecount="1"/>
         <line num="4" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="components">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Hello.jsx" path="D:\Course, Bootcamp\Lumoshive Academy\Tugas\Final Project\final-project-e-commerce-kelompok-3-dashboard\src\components\Hello.jsx">
+    <package name="assets.product">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+      <file name="EyeIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\product\EyeIcon.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
+      </file>
+      <file name="PencilIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\product\PencilIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
+      </file>
+      <file name="ShortFilterIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\product\ShortFilterIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="49" type="stmt"/>
+      </file>
+      <file name="TrashIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\product\TrashIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.rating">
+      <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
+      <file name="CalenderIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\rating\CalenderIcon.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+      <file name="DropDownIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\rating\DropDownIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="SearchIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\rating\SearchIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="ShortFilterIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\rating\ShortFilterIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+      </file>
+    </package>
+    <package name="assets.stock">
+      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="7"/>
+      <file name="CalenderIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\CalenderIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="DropDownIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\DropDownIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="EyeIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\EyeIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+      </file>
+      <file name="PencilIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\PencilIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+      </file>
+      <file name="SearchIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\SearchIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+      </file>
+      <file name="ShortFilterIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\ShortFilterIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="20" type="stmt"/>
+      </file>
+      <file name="TrashIcon.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\assets\stock\TrashIcon.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="15" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="LoadingSpinner.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\LoadingSpinner.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="3" count="2" type="cond" truecount="0" falsecount="2"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.auth">
+      <metrics statements="50" coveredstatements="43" conditionals="31" coveredconditionals="13" methods="16" coveredmethods="12"/>
+      <file name="FormForgotPassword.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormForgotPassword.jsx">
+        <metrics statements="11" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+      </file>
+      <file name="FormLogin.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormLogin.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+      <file name="FormOTP .jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormOTP .jsx">
+        <metrics statements="27" coveredstatements="23" conditionals="11" coveredconditionals="5" methods="7" coveredmethods="5"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="11" type="stmt"/>
+        <line num="8" count="11" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="20" count="8" type="cond" truecount="4" falsecount="0"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="26" count="11" type="stmt"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="11" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="46" count="11" type="stmt"/>
+        <line num="56" count="44" type="stmt"/>
+        <line num="62" count="8" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+      </file>
+      <file name="FormRegister.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\auth\FormRegister.jsx">
+        <metrics statements="6" coveredstatements="5" conditionals="10" coveredconditionals="4" methods="3" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.banner">
+      <metrics statements="46" coveredstatements="31" conditionals="16" coveredconditionals="10" methods="24" coveredmethods="11"/>
+      <file name="HeaderBanner.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\banner\HeaderBanner.jsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="49" count="20" type="stmt"/>
+        <line num="64" count="1" type="stmt"/>
+      </file>
+      <file name="PaginationBanner.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\banner\PaginationBanner.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+      </file>
+      <file name="TableBanner.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\banner\TableBanner.jsx">
+        <metrics statements="31" coveredstatements="16" conditionals="12" coveredconditionals="6" methods="19" coveredmethods="6"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="30" count="5" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="78" count="10" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="95" count="0" type="stmt"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="126" count="0" type="stmt"/>
+        <line num="139" count="0" type="cond" truecount="1" falsecount="1"/>
+        <line num="145" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.category">
+      <metrics statements="101" coveredstatements="77" conditionals="82" coveredconditionals="62" methods="28" coveredmethods="21"/>
+      <file name="CategoryFormModal.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\category\CategoryFormModal.jsx">
+        <metrics statements="61" coveredstatements="38" conditionals="68" coveredconditionals="50" methods="13" coveredmethods="7"/>
+        <line num="8" count="1" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="25" count="10" type="stmt"/>
+        <line num="26" count="10" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="30" count="10" type="stmt"/>
+        <line num="31" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="42" count="10" type="stmt"/>
+        <line num="43" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="49" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="58" count="10" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="66" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="70" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="82" count="0" type="stmt"/>
+        <line num="85" count="10" type="stmt"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="90" count="10" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="95" count="10" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="102" count="10" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
+        <line num="106" count="10" type="stmt"/>
+        <line num="107" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="108" count="0" type="stmt"/>
+        <line num="109" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="122" count="10" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="127" count="10" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="1" type="stmt"/>
+        <line num="132" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="134" count="10" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="153" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="241" count="1" type="stmt"/>
+      </file>
+      <file name="CategoryHeader.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\category\CategoryHeader.jsx">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+      </file>
+      <file name="CategoryPagination.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\category\CategoryPagination.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="16" count="8" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+      </file>
+      <file name="CategoryTable.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\category\CategoryTable.jsx">
+        <metrics statements="33" coveredstatements="32" conditionals="10" coveredconditionals="8" methods="12" coveredmethods="11"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="10" count="11" type="stmt"/>
+        <line num="11" count="11" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="24" count="11" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="29" count="11" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="11" type="stmt"/>
+        <line num="35" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="43" count="11" type="stmt"/>
+        <line num="57" count="22" type="stmt"/>
+        <line num="66" count="2" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="140" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.home">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-      <file name="SummaryCard.jsx" path="D:\Course, Bootcamp\Lumoshive Academy\Tugas\Final Project\final-project-e-commerce-kelompok-3-dashboard\src\components\home\SummaryCard.jsx">
+      <file name="SummaryCard.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\home\SummaryCard.jsx">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="7" count="1" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
         <line num="32" count="3" type="stmt"/>
         <line num="37" count="12" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.product">
+      <metrics statements="180" coveredstatements="110" conditionals="76" coveredconditionals="27" methods="69" coveredmethods="38"/>
+      <file name="HeaderProduct.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\HeaderProduct.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+      <file name="PaginationProduct.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\PaginationProduct.jsx">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="5"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="12" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="33" count="21" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="77" count="1" type="stmt"/>
+      </file>
+      <file name="ProductForm.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\ProductForm.jsx">
+        <metrics statements="57" coveredstatements="24" conditionals="22" coveredconditionals="13" methods="24" coveredmethods="3"/>
+        <line num="11" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="69" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="82" count="4" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="86" count="0" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="94" count="0" type="stmt"/>
+        <line num="98" count="4" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="108" count="4" type="stmt"/>
+        <line num="109" count="0" type="stmt"/>
+        <line num="110" count="0" type="stmt"/>
+        <line num="111" count="0" type="stmt"/>
+        <line num="114" count="4" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="119" count="4" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+        <line num="124" count="0" type="stmt"/>
+        <line num="127" count="0" type="stmt"/>
+        <line num="131" count="4" type="stmt"/>
+        <line num="161" count="5" type="stmt"/>
+        <line num="191" count="0" type="stmt"/>
+        <line num="199" count="0" type="stmt"/>
+        <line num="208" count="1" type="stmt"/>
+      </file>
+      <file name="TableProduct.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\TableProduct.jsx">
+        <metrics statements="60" coveredstatements="33" conditionals="37" coveredconditionals="9" methods="15" coveredmethods="10"/>
+        <line num="12" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="14" count="7" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="30" count="7" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="7" type="stmt"/>
+        <line num="43" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="48" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="58" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="65" count="0" type="stmt"/>
+        <line num="69" count="7" type="stmt"/>
+        <line num="70" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="73" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="79" count="7" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="85" count="7" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="90" count="7" type="stmt"/>
+        <line num="91" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="93" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="94" count="1" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="101" count="7" type="stmt"/>
+        <line num="103" count="7" type="stmt"/>
+        <line num="110" count="49" type="stmt"/>
+        <line num="111" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="121" count="14" type="stmt"/>
+        <line num="131" count="1" type="stmt"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="160" count="0" type="stmt"/>
+        <line num="172" count="1" type="stmt"/>
+        <line num="182" count="0" type="stmt"/>
+        <line num="187" count="1" type="stmt"/>
+      </file>
+      <file name="VariantProduct.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\VariantProduct.jsx">
+        <metrics statements="48" coveredstatements="38" conditionals="17" coveredconditionals="5" methods="20" coveredmethods="17"/>
+        <line num="4" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="5" count="18" type="stmt"/>
+        <line num="6" count="18" type="stmt"/>
+        <line num="7" count="18" type="stmt"/>
+        <line num="8" count="18" type="stmt"/>
+        <line num="10" count="18" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="14" count="18" type="stmt"/>
+        <line num="15" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="25" count="18" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="18" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="45" count="18" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="49" count="18" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="55" count="18" type="stmt"/>
+        <line num="56" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="61" count="18" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="92" count="27" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="113" count="1" type="stmt"/>
+        <line num="126" count="69" type="stmt"/>
+        <line num="133" count="1" type="stmt"/>
+        <line num="151" count="1" type="stmt"/>
+        <line num="153" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="154" count="0" type="stmt"/>
+        <line num="155" count="0" type="stmt"/>
+        <line num="163" count="1" type="stmt"/>
+        <line num="198" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.product.productform">
+      <metrics statements="41" coveredstatements="37" conditionals="38" coveredconditionals="35" methods="19" coveredmethods="15"/>
+      <file name="ProductAction.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\productform\ProductAction.jsx">
+        <metrics statements="14" coveredstatements="14" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="4"/>
+        <line num="5" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="22" type="stmt"/>
+        <line num="8" count="22" type="stmt"/>
+        <line num="9" count="22" type="cond" truecount="3" falsecount="0"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="8" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="19" count="22" type="stmt"/>
+        <line num="20" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="27" count="22" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+      </file>
+      <file name="ProductDetailsForm.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\productform\ProductDetailsForm.jsx">
+        <metrics statements="7" coveredstatements="5" conditionals="20" coveredconditionals="19" methods="4" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="94" count="2" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="143" count="1" type="stmt"/>
+      </file>
+      <file name="ProductHeader.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\productform\ProductHeader.jsx">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="5"/>
+        <line num="5" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+        <line num="9" count="13" type="cond" truecount="3" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="19" count="13" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+      </file>
+      <file name="ProductPhotoUploader.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\product\productform\ProductPhotoUploader.jsx">
+        <metrics statements="8" coveredstatements="6" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="4"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="86" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.rating">
+      <metrics statements="47" coveredstatements="38" conditionals="32" coveredconditionals="19" methods="23" coveredmethods="14"/>
+      <file name="PaginationRating.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\rating\PaginationRating.jsx">
+        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="82" count="2" type="stmt"/>
+      </file>
+      <file name="RatingBreadCrumb.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\rating\RatingBreadCrumb.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+      </file>
+      <file name="RatingHeader.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\rating\RatingHeader.jsx">
+        <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+        <line num="73" count="1" type="stmt"/>
+      </file>
+      <file name="RatingTable.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\rating\RatingTable.jsx">
+        <metrics statements="31" coveredstatements="25" conditionals="28" coveredconditionals="18" methods="13" coveredmethods="9"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="26" count="6" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="36" count="20" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="16" type="stmt"/>
+        <line num="40" count="4" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="43" count="4" type="stmt"/>
+        <line num="46" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="59" count="6" type="stmt"/>
+        <line num="60" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="61" count="10" type="stmt"/>
+        <line num="62" count="10" type="stmt"/>
+        <line num="70" count="6" type="cond" truecount="4" falsecount="0"/>
+        <line num="71" count="1" type="stmt"/>
+        <line num="80" count="5" type="stmt"/>
+        <line num="81" count="20" type="cond" truecount="1" falsecount="1"/>
+        <line num="86" count="5" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="107" count="0" type="stmt"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="126" count="10" type="stmt"/>
+        <line num="137" count="1" type="stmt"/>
+        <line num="169" count="0" type="stmt"/>
+        <line num="170" count="0" type="stmt"/>
+        <line num="187" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.stock">
+      <metrics statements="84" coveredstatements="55" conditionals="58" coveredconditionals="29" methods="31" coveredmethods="16"/>
+      <file name="ControlsStock.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\stock\ControlsStock.jsx">
+        <metrics statements="7" coveredstatements="6" conditionals="4" coveredconditionals="1" methods="3" coveredmethods="2"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+      </file>
+      <file name="HeaderStock.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\stock\HeaderStock.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+      <file name="PaginationStock.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\stock\PaginationStock.jsx">
+        <metrics statements="7" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+      </file>
+      <file name="TableStock.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\stock\TableStock.jsx">
+        <metrics statements="66" coveredstatements="40" conditionals="52" coveredconditionals="26" methods="20" coveredmethods="10"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="26" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="51" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="5" type="stmt"/>
+        <line num="57" count="20" type="stmt"/>
+        <line num="68" count="5" type="stmt"/>
+        <line num="69" count="30" type="cond" truecount="1" falsecount="1"/>
+        <line num="70" count="30" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="74" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="89" count="5" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="94" count="5" type="stmt"/>
+        <line num="95" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="98" count="0" type="stmt"/>
+        <line num="99" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="109" count="5" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
+        <line num="111" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="112" count="1" type="stmt"/>
+        <line num="116" count="5" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="120" count="5" type="stmt"/>
+        <line num="121" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="122" count="15" type="stmt"/>
+        <line num="123" count="15" type="stmt"/>
+        <line num="130" count="5" type="cond" truecount="3" falsecount="1"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="148" count="5" type="stmt"/>
+        <line num="156" count="1" type="stmt"/>
+        <line num="165" count="0" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="183" count="0" type="stmt"/>
+        <line num="195" count="15" type="stmt"/>
+        <line num="226" count="1" type="stmt"/>
+        <line num="233" count="0" type="stmt"/>
+        <line num="241" count="0" type="stmt"/>
+        <line num="257" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="270" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.sweetalert">
+      <metrics statements="24" coveredstatements="21" conditionals="35" coveredconditionals="23" methods="8" coveredmethods="6"/>
+      <file name="AlertDialog.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\sweetalert\AlertDialog.jsx">
+        <metrics statements="16" coveredstatements="14" conditionals="17" coveredconditionals="13" methods="4" coveredmethods="3"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="3"/>
+        <line num="7" count="41" type="stmt"/>
+        <line num="9" count="41" type="cond" truecount="4" falsecount="0"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="6" type="stmt"/>
+        <line num="26" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="33" count="3" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
+      </file>
+      <file name="SuccessAlert.jsx" path="D:\Lumoshive\Web\Tugas Praktik\GitHub\Final Project Dashboard E-Commerce Kelompok 3\Final-Project-E-Commerce-Kelompok-3-Dashboard\src\components\sweetalert\SuccessAlert.jsx">
+        <metrics statements="8" coveredstatements="7" conditionals="18" coveredconditionals="10" methods="4" coveredmethods="3"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="10" count="33" type="stmt"/>
+        <line num="11" count="33" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="20" count="33" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="5" type="stmt"/>
       </file>
     </package>
   </project>

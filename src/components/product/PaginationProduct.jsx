@@ -1,12 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const PaginationProduct = ({ currentPage, totalPages, rowsPerPage, totalItems, setRowsPerPage, setCurrentPage }) => {
+const PaginationProduct = ({
+  currentPage,
+  totalPages,
+  rowsPerPage,
+  totalItems,
+  setRowsPerPage,
+  setCurrentPage,
+}) => {
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = Math.min(startIndex + rowsPerPage, totalItems);
 
   return (
-    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100">
-      <div className="text-sm text-gray-600">
+    <div className="flex items-center justify-between px-6 py-4 border-t border-gray-100" data-testid="pagination-container">
+      <div className="text-sm text-gray-600" data-testid="pagination-info">
         {`${startIndex + 1}-${endIndex} of ${totalItems}`}
       </div>
       <div className="flex items-center gap-4">
@@ -19,9 +27,12 @@ const PaginationProduct = ({ currentPage, totalPages, rowsPerPage, totalItems, s
               setCurrentPage(1);
             }}
             className="border rounded p-1"
+            data-testid="rows-per-page-select"
           >
             {[20, 50, 100].map((value) => (
-              <option key={value} value={value}>{value}</option>
+              <option key={value} value={value}>
+                {value}
+              </option>
             ))}
           </select>
         </div>
@@ -30,25 +41,46 @@ const PaginationProduct = ({ currentPage, totalPages, rowsPerPage, totalItems, s
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
             className="p-1 rounded disabled:opacity-50"
+            data-testid="prev-page-button"
           >
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd"/>
+              <path
+                fillRule="evenodd"
+                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
           </button>
-          <span className="text-sm text-gray-600">{currentPage}/{totalPages}</span>
+          <span className="text-sm text-gray-600" data-testid="current-page-info">
+            {currentPage}/{totalPages}
+          </span>
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
             className="p-1 rounded disabled:opacity-50"
+            data-testid="next-page-button"
           >
             <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd"/>
+              <path
+                fillRule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
             </svg>
           </button>
         </div>
       </div>
     </div>
   );
+};
+
+PaginationProduct.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+  totalItems: PropTypes.number.isRequired,
+  setRowsPerPage: PropTypes.func.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default PaginationProduct;
