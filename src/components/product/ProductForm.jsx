@@ -7,6 +7,7 @@ import ProductPhotoUploader from './productform/ProductPhotoUploader';
 import ProductActions from '../product/productform/ProductAction';
 import VariantModal from '../product/VariantProduct';
 import SuccessAlert from '../sweetalert/SuccessAlert';
+import DOMPurify from 'dompurify';
 
 const ProductForm = ({ mode = 'add' }) => {
   const navigate = useNavigate();
@@ -60,7 +61,7 @@ const ProductForm = ({ mode = 'add' }) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]: DOMPurify.sanitize(value),
     }));
   };
 

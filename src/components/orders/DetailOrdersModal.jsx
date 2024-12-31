@@ -3,6 +3,7 @@ import StatusOrder from "./StatusOrder";
 import { useFetchData } from "../../hooks/useFetchData";
 import { useUpdateData } from "../../hooks/useUpdateData";
 import LoadingSpinner from "../LoadingSpinner";
+import DOMPurify from "dompurify";
 
 const DetailOrdersModal = ({ isOpen, onClose, order, action }) => {
   if (!isOpen) return null;
@@ -159,7 +160,7 @@ const DetailOrdersModal = ({ isOpen, onClose, order, action }) => {
                 type="text"
                 id="tracking_number"
                 name="tracking_number"
-                onChange={(e) => setTrackingNumber(e.target.value)}
+                onChange={(e) => setTrackingNumber(DOMPurify.sanitize(e.target.value))}
                 value={order.tracking_number}
                 placeholder="Enter Tracking Number"
                 readOnly={order.status_order === "completed"}
